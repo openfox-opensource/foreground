@@ -1,0 +1,207 @@
+body.fontLarge .site {
+    line-height:38px;
+}
+body.fontLarge {
+    font-size:32px;
+}
+.fontLarge .header .lang {
+    font-size: 28px;
+}
+.fontLarge .header .menues  {
+    height:auto;
+}
+.fontLarge .header .menues .smenu {
+    float: none;
+    clear:both;
+    font-size: 26px;
+    margin-top:50px;
+    text-align: left;
+}
+.fontLarge .breadcrumbs {
+    padding:12px 0;
+    line-height:30px;
+    font-size: 28px;
+}
+.fontLarge .rap .content {
+    font-size: 28px;
+}
+.fontLarge a.btn .icon, 
+.fontLarge .btn .icon {
+    display:none;
+}
+.fontLarge a.btn, 
+.fontLarge .btn {
+    line-height: 50px;
+    font-size: 30px;
+}
+.fontLarge footer {
+    font-size: 30px;
+    height: auto;
+    overflow: auto;
+}
+.fontLarge .top .search input.search {
+    font-size:46px;
+}
+.fontLarge .header .menues nav .mtlp-rap .mtlp-side {
+    line-height:46px;
+}
+
+.fontLarge .header .menues .mmenu li.wopened a .arrowline {	
+    top: 67px;
+}
+.fontLarge .header .menues .mmenu li.wopened a .arrow,
+.fontLarge .header .menues .mmenu li.wopened a:hover .arrow,
+.fontLarge .header .menues .mmenu li.mcurr.wopened a .arrow {
+    top: 56px;
+}
+.fontLarge .item-title h1 {
+    font-size: 44px;
+    line-height: 48px;
+}
+.fontLarge .item-title h5 {
+    font-size:36px;
+}
+.fontLarge {
+}
+
+
+body.fontMedium .site {
+    line-height:28px;
+}
+body.fontMedium {
+    font-size:24px;
+}
+.fontMedium .header .lang {
+    font-size: 21px;
+}
+.fontMedium .header .menues  {
+    height:auto;
+}
+.fontMedium .header .menues .smenu {
+    float: none;
+    clear:both;
+    font-size: 20px;
+    margin-top:50px;
+    text-align: left;
+}
+.fontMedium .breadcrumbs {
+    padding:12px 0;
+    line-height:23px;
+    font-size: 21px;
+}
+.fontMedium .main-img .mtext .h1,
+.fontMedium .main-img .mtext h1 {
+    font-size: 41px;
+    line-height: 45px;
+}
+.fontMedium .rap .content {
+    font-size: 21px;
+}
+.fontMedium .item h4 {
+    font-size: 30px;
+    line-height: 30px;
+}
+.fontMedium .item h5 {
+    font-size: 20px;
+}
+.fontMedium .programs .item.item .trap h4 {
+    line-height:35px;
+}
+.fontMedium a.btn .icon, 
+.fontMedium .btn .icon {
+    display:none;
+}
+.fontMedium a.btn, 
+.fontMedium .btn {
+    line-height: 38px;
+    font-size: 23px;
+}
+.fontMedium footer {
+    font-size: 23px;
+    height: auto;
+    overflow: auto;
+}
+.fontMedium .top .search input.search {
+    font-size:35px;
+}
+.fontMedium .sidebar .DC-list .DC-item {
+    font-size: 24px;
+    line-height: 25px;
+}
+.fontMedium .header .menues nav .mtlp-rap .mtlp-side {
+    line-height:35px;
+}
+
+.fontMedium .header .menues .mmenu li.wopened a .arrowline {	
+    top: 67px;
+}
+.fontMedium .header .menues .mmenu li.wopened a .arrow,
+.fontMedium .header .menues .mmenu li.wopened a:hover .arrow,
+.fontMedium .header .menues .mmenu li.mcurr.wopened a .arrow {
+    top: 56px;
+}
+.fontMedium .item-title h1 {
+    font-size: 33px;
+    line-height: 36px;
+}
+.fontMedium .item-title h5 {
+    font-size:24px;
+}
+.fontMedium {
+}
+
+
+.contrast-grayscale { 
+    -webkit-filter: grayscale(1) contrast(1);
+    -moz-filter: grayscale(1) contrast(1);
+    -ms-filter: grayscale(1) contrast(1);
+    -o-filter: grayscale(1) contrast(1);
+    filter: grayscale(1) contrast(1);
+    -webkit-filter: gray;
+    filter: gray; /* IE 6-9 */
+}
+
+.contrast-invert {
+    background: black !important;
+    background-color: black !important;
+    color: white !important;
+    /*filter: invert(1) contrast(1);
+    -webkit-filter: invert(1) contrast(1);
+    -moz-filter: invert(1) contrast(1);
+    -o-filter: invert(1) contrast(1);
+    -ms-filter: invert(1) contrast(1);*/
+}
+
+.contrast-invert .mfb-component__button--main,
+.contrast-invert .mfb-component__button--child {
+    border: solid 2px yellow !important;
+}
+
+.contrast-invert .mfb-component__button--main:hover, 
+.contrast-invert .mfb-component__button--main:focus,
+.contrast-invert .mfb-component__button--child:hover, 
+.contrast-invert .mfb-component__button--child:focus {
+    color: white !important;
+    border: solid 3px white !important;
+}
+
+.contrast-invert a {
+    background: black !important;
+    background-color: black !important;
+    color: yellow !important;	
+}
+
+.contrast-invert input {
+    background: black !important;
+    background-color: black !important;
+    color: white !important;
+    border: solid 2px white !important;
+
+}
+
+.contrast-invert span.curr,
+.contrast-grayscale span.curr{
+    color: #ffffff;
+    background: black;
+    border: 2px solid #ffff00;   
+}

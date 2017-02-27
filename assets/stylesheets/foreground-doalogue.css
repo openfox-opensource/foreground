@@ -1,0 +1,532 @@
+/* הסתרת כפתורי כניסה
+
+li.login-bar, #top-bar-right > li.has-dropdown.active {
+
+display: none;
+
+}
+
+*/
+
+
+/*  תפריט ראשי */
+
+li[id*="p-menu-"]>a {
+    visibility: hidden !important;
+    font-size: 11px !important;
+}
+
+li[id*="p-menu-"] a:hover {
+    color: #5c9ac9 !important;
+}
+
+li[id*="p-menu-"] ul.dropdown {
+    VISIBILITY: VISIBLE !important;
+    position: absolute !important;
+    top: 17px !important;
+    border-bottom: transparent !important;
+    font-size: 22px !important;
+}
+
+
+/* עמוד ראשי */
+
+div[class*=" shapeshifted"]>p:first-child,
+#bodyContent>p:first-child {
+    display: block;
+    text-align: center;
+    font-size: 18px;
+    padding: 1em;
+    background-color: #f7f7f7;
+    margin: 10px 10px 1em;
+}
+
+
+/* קישורי קבצים */
+
+*:not(.floatleft):not(.fullImageLink):not(.thumb)>a[href$=".pdf"]:not(.image):after {
+    display: inline-block;
+    position: relative;
+    content: "";
+    top: 4px;
+    height: 1.2em;
+    background-repeat: no-repeat;
+    background-size: contain;
+    width: 1.5em;
+    background-image: url(https://upload.wikimedia.org/wikipedia/commons/5/5f/Document-pdf.svg);
+}
+
+a[href$=".doc"]:not(.image):after,
+a[href$=".docx"]:not(.image):after {
+    display: inline-block;
+    position: relative;
+    content: "";
+    top: 4px;
+    height: 1.2em;
+    background-repeat: no-repeat;
+    background-size: contain;
+    width: 1.5em;
+    background-image: url(https://upload.wikimedia.org/wikipedia/commons/4/4f/Microsoft_Word_2013_logo.svg
+);
+}
+
+a[href$=".ppt"]:not(.image):after,
+a[href$=".pptx"]:not(.image):after,
+a[href$=".pps"]:after:not(.image),
+a[href$=".ppsx"]:after:not(.image) {
+    display: inline-block;
+    position: relative;
+    content: "";
+    top: 4px;
+    height: 1.2em;
+    background-repeat: no-repeat;
+    background-size: contain;
+    width: 1.5em;
+    background-image: url(https://upload.wikimedia.org/wikipedia/commons/b/b0/Microsoft_PowerPoint_2013_logo.svg
+);
+}
+
+a[href$=".ppt"].image>img,
+a[href$=".pptx"].image>img,
+a[href$=".pps"].image>img,
+a[href$=".ppsx"].image>img,
+a[href$=".doc"].image>img,
+a[href$=".docx"].image>img {
+    opacity: 0;
+}
+
+a[href$=".ppt"].image,
+a[href$=".pptx"].image,
+a[href$=".pps"].image,
+a[href$=".ppsx"].image,
+a[href$=".doc"].image,
+a[href$=".docx"].image {
+    display: inline-block;
+    background-repeat: no-repeat;
+    background-size: contain;
+    background-position: center;
+    background-image: url(https://upload.wikimedia.org/wikipedia/commons/b/b0/Microsoft_PowerPoint_2013_logo.svg);
+    margin: 4px;
+    width: 60px;
+}
+
+a[href$=".doc"] .image,
+a[href$=".docx"].image {
+    background-image: url(https://upload.wikimedia.org/wikipedia/commons/4/4f/Microsoft_Word_2013_logo.svg);
+}
+
+.filehistory td>a[href$=".pdf"]:after {
+    background: none !important;
+    display: none !important;
+}
+
+a.internal {
+    display: none;
+}
+
+.mw-content-rtl a.internal {
+    display: inline;
+}
+
+
+/* תיקוני ממשק עריכה */
+
+.oo-ui-barToolGroup>.oo-ui-toolGroup-tools>.oo-ui-tool>.oo-ui-tool-link,
+.oo-ui-popupToolGroup-handle {
+    height: 50px !important;
+}
+
+.oo-ui-processDialog-title {
+    line-height: 1 !important;
+}
+
+.oo-ui-toolGroup {
+    border: transparent !important;
+}
+
+.ve-init-mw-viewPageTarget-toolbar-actions {
+    margin-right: 1em !important;
+}
+
+#upload-drop {
+    padding: 0px;
+    height: 27px;
+}
+
+a.button.dropdown {
+    z-index: 1;
+}
+
+.oo-ui-toolGroup {
+    border-left: 1px solid #fff;
+}
+
+.oo-ui-toolbar-bar {
+    margin-right: 0em;
+    margin-left: 1em;
+}
+
+.ve-init-target div {
+    line-height: 1;
+}
+
+.oo-ui-processDialog-location {
+    height: 100%;
+}
+
+
+/*
+
+.title-name {
+
+display: block !important;
+
+font-size: .1px;
+
+color:#f0f0f0;}
+
+
+
+.title-name img {
+
+max-width: none !important;
+
+}
+
+*/
+
+
+/* תבנית קרדיט */
+
+.credit {
+    display: block;
+    text-align: center;
+    font-size: 15px;
+    padding: 9px 12px 1px;
+    background-color: #f7f7f7;
+    border: 2px solid #5c9ac9;
+    margin: 10px 0;
+}
+
+
+/* התאמה לאתר הכנס */
+
+
+/* צבעי פורטל */
+
+.portal-back2 {
+    /* FF3.6+ */
+    background: -webkit-gradient(radial, center center, 0px, center center, 100%, color-stop(0%, #EF866B), color-stop(100%, #ef532a));
+    /* Chrome,Safari4+ */
+    background: -webkit-radial-gradient(center, ellipse cover, #EF866B 0%, #ef532a 100%);
+    /* Chrome10+,Safari5.1+ */
+    /* Opera 12+ */
+    /* IE10+ */
+    background: -webkit-radial-gradient(center ellipse, #EF866B 0%, #ef532a 100%);
+    background: radial-gradient(ellipse at center, #EF866B 0%, #ef532a 100%);
+    /* W3C */
+    filter: progid: DXImageTransform.Microsoft.gradient( startColorstr='#EF866B', endColorstr='#ef532a', GradientType=1);
+    /* IE6-9 fallback on horizontal gradient */
+}
+
+.portal-back3 {
+    background: -webkit-gradient(radial, center center, 0px, center center, 100%, color-stop(1%, #85BBF2), color-stop(100%, #1d65ad));
+    background: -webkit-radial-gradient(center, ellipse cover, #85BBF2 1%, #1d65ad 100%);
+    background: -webkit-radial-gradient(center ellipse, #85BBF2 1%, #1d65ad 100%);
+    background: radial-gradient(ellipse at center, #85BBF2 1%, #1d65ad 100%);
+    filter: progid: DXImageTransform.Microsoft.gradient( startColorstr='#85BBF2', endColorstr='#1d65ad', GradientType=1);
+}
+
+.portal-back4 {
+    /* FF3.6+ */
+    background: -webkit-gradient(radial, center center, 0px, center center, 100%, color-stop(0%, #FFCA9E), color-stop(100%, #f5872b));
+    /* Chrome,Safari4+ */
+    background: -webkit-radial-gradient(center, ellipse cover, #FFCA9E 0%, #f5872b 100%);
+    /* Chrome10+,Safari5.1+ */
+    /* Opera 12+ */
+    /* IE10+ */
+    background: -webkit-radial-gradient(center ellipse, #FFCA9E 0%, #f5872b 100%);
+    background: radial-gradient(ellipse at center, #FFCA9E 0%, #f5872b 100%);
+    /* W3C */
+    filter: progid: DXImageTransform.Microsoft.gradient( startColorstr='#FFCA9E', endColorstr='#f5872b', GradientType=1);
+    /* IE6-9 fallback on horizontal gradient */
+}
+
+.portal-back5 {
+    /* FF3.6+ */
+    background: -webkit-gradient(radial, center center, 0px, center center, 100%, color-stop(1%, #BBEA95), color-stop(100%, #7bc143));
+    /* Chrome,Safari4+ */
+    background: -webkit-radial-gradient(center, ellipse cover, #BBEA95 1%, #7bc143 100%);
+    /* Chrome10+,Safari5.1+ */
+    /* Opera 12+ */
+    /* IE10+ */
+    background: -webkit-radial-gradient(center ellipse, #BBEA95 1%, #7bc143 100%);
+    background: radial-gradient(ellipse at center, #BBEA95 1%, #7bc143 100%);
+    /* W3C */
+    filter: progid: DXImageTransform.Microsoft.gradient( startColorstr='#BBEA95', endColorstr='#7bc143', GradientType=1);
+    /* IE6-9 fallback on horizontal gradient */
+}
+
+.portal-back6 {
+    /* FF3.6+ */
+    background: -webkit-gradient(radial, center center, 0px, center center, 100%, color-stop(0%, #a3c2cc), color-stop(100%, #0a9ece));
+    /* Chrome,Safari4+ */
+    background: -webkit-radial-gradient(center, ellipse cover, #a3c2cc 0%, #0a9ece 100%);
+    /* Chrome10+,Safari5.1+ */
+    /* Opera 12+ */
+    /* IE10+ */
+    background: -webkit-radial-gradient(center ellipse, #a3c2cc 0%, #0a9ece 100%);
+    background: radial-gradient(ellipse at center, #a3c2cc 0%, #0a9ece 100%);
+    /* W3C */
+    filter: progid: DXImageTransform.Microsoft.gradient( startColorstr='#a3c2cc', endColorstr='#0a9ece', GradientType=1);
+    /* IE6-9 fallback on horizontal gradient */
+}
+
+.portal-back7 {
+    /* FF3.6+ */
+    background: -webkit-gradient(radial, center center, 0px, center center, 100%, color-stop(0%, #B899C5), color-stop(100%, #712a8e));
+    /* Chrome,Safari4+ */
+    background: -webkit-radial-gradient(center, ellipse cover, #B899C5 0%, #712a8e 100%);
+    /* Chrome10+,Safari5.1+ */
+    /* Opera 12+ */
+    /* IE10+ */
+    background: -webkit-radial-gradient(center ellipse, #B899C5 0%, #712a8e 100%);
+    background: radial-gradient(ellipse at center, #B899C5 0%, #712a8e 100%);
+    /* W3C */
+    filter: progid: DXImageTransform.Microsoft.gradient( startColorstr='#B899C5', endColorstr='#712a8e', GradientType=1);
+    /* IE6-9 fallback on horizontal gradient */
+}
+
+.portal-back8 {
+    background-color: #C02990;
+    background: #C02990;
+    background: -webkit-gradient(radial, center center, 0px, center center, 100%, color-stop(1%, #EA88CB), color-stop(100%, #C02990));
+    background: -webkit-radial-gradient(center, ellipse cover, #EA88CB 1%, #EA88CB 100%);
+    background: -webkit-radial-gradient(center ellipse, #EA88CB 1%, #C02990 100%);
+    background: radial-gradient(ellipse at center, #EA88CB 1%, #C02990 100%);
+    filter: progid: DXImageTransform.Microsoft.gradient( startColorstr='#6686a5', endColorstr='#C02990', GradientType=1);
+}
+
+
+/*  עיצוב כללי */
+
+#content h5 {
+    margin-bottom: 0.7em;   
+}
+
+#tagline,
+#content .title,
+#content .subtitle,
+#contentSub,
+#content .mw-bodytext,
+#content .group,
+#content .ve-ui-surface {
+    /*   max-width: 750px;
+    */
+    margin: auto;
+}
+
+#content p {
+    text-align: justify;
+    /*margin-bottom: 0.7em;*/
+}
+
+#conten li {
+    line-height: 1.3;
+}
+
+div.tleft,
+div.floatleft,
+table.floatleft {
+    float: left;
+    clear: left;
+    margin: 1em 2em 1em 0;
+}
+
+.ns-8 .mw-css {
+    direction: ltr !important;
+}
+
+blockquote {
+    margin: 1.25em 0 1.25em;
+    padding: 0.5625em 4.1875em;
+    border-right: 6px solid #A7A7A7;
+    font-size: 1.1em;
+}
+
+.title-name img {
+    max-height: 53px !important;
+    margin: 5px;
+}
+
+li.divider.show-for-small {
+    opacity: 0;
+}
+
+
+/* תוכן עניינים */
+
+#toc li.active a {
+    background: gray;
+    border-radius: 4px;
+    padding: 4px;
+    color: #fff;
+}
+
+#tocmeta {
+    display: none;
+}
+
+#toc ul {
+    list-style: none;
+}
+
+#toc li {
+    /* text-align: right; */
+    text-align: left;
+    font-size: 16px;
+    margin-bottom: 3px;
+    list-style: none;
+}
+
+li.toclevel-2 {
+    font-weight: normal;
+}
+
+li.toclevel-1 {
+    font-weight: bold;
+}
+
+.toctoggle {
+    -webkit-transition: all 0.4s ease;
+    transition: all 0.4s ease;
+}
+
+.toctoggle,
+.tocnumber {
+    display: none;
+}
+
+@media only screen and (min-width: 1450px) {
+    #toc li a {
+        color: rgb(106, 106, 106);
+    }
+    a#togglelink {
+        color: #808080;
+    }
+    span.toctoggle {
+        margin: 0px 1em 0 -2em;
+    }
+    #toc,
+    .toc {
+        background: transparent;
+        position: absolute;
+        left: -134px;
+        /* right: -134px;*/
+        top: 15em;
+        padding: 1em;
+        z-index: 0;
+        width: 252px;
+        border: none;
+        /* box-shadow: black 0px 12px 18px -16px;
+
+        box-shadow: black -1px 1px 10px -4px, black 0px 13px 17px -12px; */
+        -webkit-transition: all 900ms cubic-bezier(0.805, 0.010, 0.180, 1);
+        -webkit-transition: all 900ms cubic-bezier(0.805, 0.010, 0.180, 1.285);
+        transition: all 900ms cubic-bezier(0.805, 0.010, 0.180, 1.285);
+        -webkit-transition-timing-function: cubic-bezier(0.805, 0.010, 0.180, 1);
+        -webkit-transition-timing-function: cubic-bezier(0.805, 0.010, 0.180, 1.285);
+        transition-timing-function: cubic-bezier(0.805, 0.010, 0.180, 1.285);
+        -webkit-transition-delay: 300ms;
+        transition-delay: 300ms;
+    }
+    @media only screen and (max-width: 1450px) {
+        #toc,
+        .toc {
+            position: relative !important;
+        }
+    }
+    #tocmeta {
+        display: block;
+    }
+    #tocmeta #firstHeading {
+        font-size: 1.2em;
+        text-align: center;
+        font-weight: bold;
+    }
+    .tochidden {
+        visibility: hidden;
+    }
+    .tochidden .toctoggle {
+        visibility: visible;
+        margin-left: 8em;
+    }
+    .tochidden #togglelink {
+        opacity: 0;
+    }
+    .tochidden .toctoggle:before {
+        content: "+";
+        font-size: 3em;
+        font-family: cursive;
+        position: absolute;
+        margin-top: -4px;
+        color: rgb(10, 152, 244);
+        margin-right: 8px;
+    }
+    .tochidden .toctoggle:before:hover {}
+    a.scrollFixIt {
+        -webkit-transform: rotate(23deg);
+        transform: rotate(23deg);
+        color: #656565;
+    }
+}
+
+@media only screen and (min-width: 1650px) {
+    #toc,
+    .toc {
+        right: -285px;
+    }
+}
+
+#toc #toctitle,
+.toc #toctitle,
+#toc .toctitle,
+.toc .toctitle {
+    font-size: 0.6em;
+}
+
+
+/* תיקוני כיוון */
+
+div.tleft,
+div.floatleft,
+table.floatleft {
+    float: left;
+    clear: left;
+}
+
+pre.css.source-css {
+    direction: ltr;
+}
+
+
+/* תיקון דרופדאון במובייל */
+/* @noflip */
+ul#drop1 {
+    left: 0;
+}
+
+
+/* תיקוני RTL */
+
+div.tleft,
+div.floatleft,
+table.floatleft {
+    float: right;
+    clear: right;
+    margin: 1em 0em 1em 2em;
+}
+
+.ns-8 .mw-highlight pre {
+    direction: rtl;
+}

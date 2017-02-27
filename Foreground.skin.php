@@ -167,7 +167,7 @@ class foregroundTemplate extends BaseTemplate {
 		
 		<div id="page-content">
 		<div class="row">
-				<div class="large-12 columns">
+				<div class="large-12 columns"> 
 				<!--[if lt IE 9]>
 				<div id="siteNotice" class="sitenotice panel radius"><?php echo $this->text('sitename') . ' '. wfMessage( 'foreground-browsermsg' )->text(); ?></div>
 				<![endif]-->

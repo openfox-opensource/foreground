@@ -1,7 +1,30 @@
+// פורטלים
+$(document).ready(function(){
+	if ($('.portal').length > 0) { 
+        
+        $("#mw-content-text").shapeshift({
+            minColumns: 2, 
+            selector: ".portal"
+        });
+
+        $(document).ready(function(){
+           // set up hover panels
+           // although this can be done without JavaScript, we've attached these events
+          // because it causes the hover to be triggered when the element is tapped on a touch device
+        $('.hover').hover(function(){
+                $(this).addClass('flip');
+            },function(){
+                $(this).removeClass('flip');
+            });
+        });
+    };
+});
 
 jQuery(document).ready(function() {
   // Add the 'less than IE9' class to appropriate version of IE by checking for their support of cssFloat (true in v9)
   if (!jQuery.support.cssFloat) { jQuery('html').addClass('lt-ie9').addClass('no-js'); }
+
+ //jQuery('#load-jobiz').load('/outsource/jobiz.html .searchResults.timeLine'); //jobiz manhigut
 
 
   jQuery(document).foundation(function (response) {
@@ -14,8 +37,12 @@ jQuery(document).ready(function() {
   jQuery("#pt-notifications").prependTo("#echo-notifications");
   
   // Append font-awesome icons
+	$('#mw-input-wpFromAddress').attr("placeholder", "כתובת דוא''ל");
+	$('#mw-input-wpFromName').attr("placeholder", "שם");
+	$('#mw-input-wpSubject').attr("placeholder", "נושא");
   jQuery('[id^=ca-nstab] a').prepend('<div class="drop-icon"><i class="fa fa-file fa-fw"></i></div>')
   jQuery('li#ca-talk a').prepend('<div class="drop-icon"><i class="fa fa-comments-o fa-fw"></i></div>')
+  jQuery('li#ca-ve-edit a').prepend('<div class="drop-icon"><i class="fa fa-pencil fa-fw"></i></div>')
   jQuery('li#ca-edit a').prepend('<div class="drop-icon"><i class="fa fa-pencil-square-o fa-fw"></i></div>')
   jQuery('li#ca-viewsource a').prepend('<div class="drop-icon"><i class="fa fa-book fa-fw"></i></div>')
   jQuery('li#ca-form_edit a').prepend('<div class="drop-icon"><i class="fa fa-pencil-square fa-fw"></i></div>')
@@ -66,11 +93,14 @@ if ( jQuery( '#ca-addsection' ).length ) {
   jQuery('#mw-normal-catlinks ul li a').addClass('label');
 
   // Make the Page Action button respond to hover
-  jQuery('a.button.dropdown').mouseenter(function(){
-    jQuery('ul#drop1').addClass('open').addClass('right').css('top', '32px').css('left', '785px');
+    jQuery('a.options-btn.dropdown').mouseenter(function(){
+      //    jQuery('ul#drop1').addClass('open').addClass('right').css('top', '4em').css('right', '1em');
+      jQuery('ul#drop1').addClass('open').css('top', '2em').css('left','-2em');
   });
   jQuery('ul#drop1').mouseleave(function(){
-    jQuery('ul#drop1').removeClass('open').css('top', '-9999px').css('left', '785px');
+      //    jQuery('ul#drop1').removeClass('open').css('top', '-9999px').css('right', '1em');
+      jQuery('ul#drop1').removeClass('open').css('top', '-9999px');
   });
 
 });
+

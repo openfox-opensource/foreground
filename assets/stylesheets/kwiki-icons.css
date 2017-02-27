@@ -1,0 +1,149 @@
+@font-face {
+  font-family: 'Kwiki';
+    src:    url('../fonts/kwiki-icons/Kwiki.eot?j18khn');
+    src:    url('../fonts/kwiki-icons/Kwiki.eot?j18khn#iefix') format('embedded-opentype'),
+            url('../fonts/kwiki-icons/Kwiki.ttf?j18khn') format('truetype'),
+            url('../fonts/kwiki-icons/Kwiki.woff?j18khn') format('woff'),
+            url('../fonts/kwiki-icons/Kwiki.svg?j18khn#Kwiki') format('svg');
+  font-weight: normal;
+  font-style: normal;
+}
+
+.kwiki-icon {
+  /* use !important to prevent issues with browser extensions that change fonts */
+  font-family: 'Kwiki' !important;
+  speak: none;
+  font-style: normal;
+  font-weight: normal;
+  font-variant: normal;
+  text-transform: none;
+  line-height: 1;
+
+  /* Better Font Rendering =========== */
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+.kwiki-icon-tag:before {
+    content: "\e901";
+}
+.kwiki-icon-link2:before {
+    content: "\e902";
+}
+.kwiki-icon-cog:before {
+    content: "\e903";
+}
+.kwiki-icon-pictures:before {
+    content: "\e904";
+}
+.kwiki-icon-checkmark:before {
+    content: "\e905";
+}
+.kwiki-icon-cancel:before {
+    content: "\e906";
+}
+.kwiki-icon-upload:before {
+    content: "\e907";
+}
+.kwiki-icon-download:before {
+    content: "\e908";
+}
+.kwiki-icon-phone:before {
+    content: "\e912";
+}
+.kwiki-icon-stack:before {
+    content: "\e909";
+}
+.kwiki-icon-pencil:before {
+    content: "\e90a";
+}
+.kwiki-icon-profile:before {
+    content: "\e90b";
+}
+.kwiki-icon-bookmark:before {
+    content: "\e90c";
+}
+.kwiki-icon-addressbook:before {
+    content: "\e90d";
+}
+.kwiki-icon-envelope:before {
+    content: "\e900";
+}
+.kwiki-icon-heart:before {
+    content: "\e90e";
+}
+.kwiki-icon-info:before {
+    content: "\e90f";
+}
+.kwiki-icon-pictures2:before {
+    content: "\e910";
+}
+.kwiki-icon-tags:before {
+    content: "\e911";
+}
+.kwiki-icon-location:before {
+    content: "\e947";
+}
+.kwiki-icon-printer:before {
+    content: "\e954";
+}
+.kwiki-icon-equalizer:before {
+    content: "\e992";
+}
+.kwiki-icon-bin:before {
+    content: "\e9ac";
+}
+.kwiki-icon-bin2:before {
+    content: "\e9ad";
+}
+.kwiki-icon-clipboard:before {
+    content: "\e9b8";
+}
+.kwiki-icon-sphere:before {
+    content: "\e9c9";
+}
+.kwiki-icon-earth:before {
+    content: "\e9ca";
+}
+.kwiki-icon-link:before {
+    content: "\e9cb";
+}
+.kwiki-icon-attachment:before {
+    content: "\e9cd";
+}
+.kwiki-icon-enter:before {
+    content: "\ea13";
+}
+.kwiki-icon-exit:before {
+    content: "\ea14";
+}
+.kwiki-icon-sort-amount-asc:before {
+    content: "\ea4c";
+}
+.kwiki-icon-sort-amount-desc:before {
+    content: "\ea4d";
+}
+.kwiki-icon-checkbox-checked:before {
+    content: "\ea52";
+}
+.kwiki-icon-checkbox-unchecked:before {
+    content: "\ea53";
+}
+.kwiki-icon-filter:before {
+    content: "\ea5b";
+}
+.kwiki-icon-share:before {
+    content: "\ea7d";
+}
+.kwiki-icon-new-tab:before {
+    content: "\ea7e";
+}
+.kwiki-icon-embed2:before {
+    content: "\ea80";
+}
+.kwiki-icon-terminal:before {
+    content: "\ea81";
+}
+.kwiki-icon-google-drive:before {
+    content: "\ea8f";
+}
