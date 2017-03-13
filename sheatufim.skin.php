@@ -80,34 +80,10 @@ class foregroundTemplate extends BaseTemplate {
     <!-- START ForegroundTemplate -->
     <header class="header">
         <div class="header-site">
-            <div class="menues mmrap">
-                <nav class="smenu">
-                    <a class="logo" href="http://ghost.kwiki.co.il/">
-                        <img title="שיתופים - אסטרטגיות להשפעה חברתית" alt="שיתופים - אסטרטגיות להשפעה חברתית" 
-                             src="/w/upload/sheatufim/sheatufim.png">
-                    </a>
-                    <li><span class="smtlp">על המאגר<span class="hide icon icon-svg_icons_arrow"></span></span>
-                        <div class="smtlp-arrow"></div>
-                        <div class="smtlp-rap">
-                            <a href="#">צוות שיתופים<span class="hide icon-svg_icons_arrow"></span></a>
-                            <a href="#">ארגונים מייסדים<span class="hide icon-svg_icons_arrow"></span></a>
-                            <a href="#">חברי הוועד המנהל<span class="hide icon-svg_icons_arrow"></span></a>
-                            <a href="#">בית שיתופים<span class="hide icon-svg_icons_arrow"></span></a>
-                            <a href="#">שיתופים בתקשורת<span class="hide icon-svg_icons_arrow"></span></a>
-                        </div>
-                    </li>
-                    <li><a href="#">אודות שיתופים<span class="hide icon icon-svg_icons_arrow"></span></a></li>
-                    <li><a href="#">צור קשר<span class="hide icon icon-svg_icons_arrow"></span></a></li>
-                    <li><a href="#">לאתר שיתופים<span class="hide icon icon-svg_icons_arrow"></span></a></li>
-                    <form action="<?php $this->text( 'wgScript' ); ?>" id="searchform" class="search-rap">
-                        <?php echo $this->makeSearchInput(array('placeholder' => wfMessage('searchsuggest-search')->text(), 'id' => 'searchInput') ); ?> 
-                        <span class="icon icon-svg_icons_Search" title="<?php echo wfMessage( 'search' )->text() ?>"></span>                
-                    </form>                                     
-                </nav>
-            </div>
-            <div class="hide WSmallShow WSWideShow WMediumShow open-menu"><span></span><span></span><span></span></div>
-            <div class="hide WSmallShow WSWideShow open-search icon-svg_icons_Search"></div><span class="mmarrow hide"></span>
-            
+			<a class="logo" href="<?php echo $this->data['nav_urls']['mainpage']['href']; ?>">
+							<img alt="<?php echo $this->text('sitename'); ?>" class="top-logo" src="<?php echo $this->text('logopath') ?>">
+			</a>
+			            
             <div class="mmmrap">
                 <div class="mmrap exmenu">
                     <div class="aaa">
@@ -126,6 +102,33 @@ class foregroundTemplate extends BaseTemplate {
                     </div>
                 </div>
             </div>
+			<div class="head-wrapper">
+				<div class="menues mmrap">
+					<nav class="smenu">
+						<ul>
+							<li><a href="/שיתופים:אודות"><span class="smtlp">על הפורטל<span class="hide icon icon-svg_icons_arrow"></span></a></span></li>
+							<li><a href="//sheatufim.org.il">על שיתופים<span class="hide icon icon-svg_icons_arrow"></span></a></li>
+							<li><a href="/פורטל:פורטלים"><span class="smtlp">ארגזי כלים<span class="hide icon icon-svg_icons_arrow"></span></a></span>
+								<div class="smtlp-arrow"></div>
+								<div class="smtlp-rap">
+									<a href="/פורטל:שולחן העבודה למנהל החברתי">שולחן העבודה למנכ"ל החברתי<span class="hide icon-svg_icons_arrow"></span></a>
+									<a href="/פורטל:שולחן העבודה למנהל החברתי"> הספרייה – מדריכים למנכ"ל החברתי<span class="hide icon-svg_icons_arrow"></span></a>
+									<a href="/פורטל:ארגז הכלים לניהול פיננסי"> ארגז הכלים לניהול פיננסי<span class="hide icon-svg_icons_arrow"></span></a>
+									<a href="/פורטל:ארגז הכלים לניהול מענקים">ארגז הכלים לניהול מענקים<span class="hide icon-svg_icons_arrow"></span></a>
+									<a href="/פורטל:ארגז כלים לניהול אסטרטגי"> ארגז הכלים לניהול אסטרטגי<span class="hide icon-svg_icons_arrow"></span></a>
+								</div>
+							</li>
+							<li><a href="//sheatufim.org.il/contact-us/">צור קשר<span class="hide icon icon-svg_icons_arrow"></span></a></li>			
+						</ul>
+					</nav>
+				</div>
+				<form action="<?php $this->text( 'wgScript' ); ?>" id="searchform" class="search-rap">
+									<?php echo $this->makeSearchInput(array('placeholder' => wfMessage('searchsuggest-search')->text(), 'id' => 'searchInput') ); ?> 
+									<span class="icon icon-svg_icons_Search" title="<?php echo wfMessage( 'search' )->text() ?>"></span>                
+				</form>
+			</div>
+            <div class="hide WSmallShow WSWideShow WMediumShow open-menu"><span></span><span></span><span></span></div>
+            <div class="hide WSmallShow WSWideShow open-search icon-svg_icons_Search"></div><span class="mmarrow hide"></span>
         </div>        
     </header>
 

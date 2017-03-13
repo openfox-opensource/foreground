@@ -60,6 +60,10 @@ html,body{
     box-sizing: border-box;
 }
 
+.mw-editsection {
+    display: none;
+}
+
 /* @noflip */
 #actions-menu {
     float: left;
@@ -102,7 +106,7 @@ h2.purpleColor {
     width: 90%;
     max-width: 1300px;
     margin: 0 auto;
-    display: table;
+    /* display: table; */
 }
 /* @noflip */
 .header-site {
@@ -113,12 +117,39 @@ h2.purpleColor {
     margin: 0 auto;
     display: table;
 }
+
+.head-wrapper {
+    overflow: hidden;
+}
+
 /* @noflip */
 .header .logo {
     float:right;
-    margin-bottom:19px;
     position: relative;
     z-index: 10;
+}
+/* @noflip */
+.header ul {
+    margin: 0;
+}
+@media only screen and (max-width: 768px){
+	.header-site {
+    width: 100%;
+	padding: 0;
+	}
+}
+@media only screen and (min-width: 768px){
+	.logo {
+	width: 18%;
+	margin-bottom:19px;
+
+}
+.header .menues {
+	width:60%;
+	}
+.header .search-rap {
+    width: 40%;
+}
 }
 .header .aaa span.fontSmall {
     font-size:10px;
@@ -147,7 +178,7 @@ h2.purpleColor {
 .header .aaa {
     float: left;
     position: relative;
-    top: -4px;
+    top: -6px;
     font-size: 18px;
     font-family: Poeti-Bold;
     margin-left: 6px;
@@ -175,13 +206,13 @@ h2.purpleColor {
 }
 /* @noflip */
 .header .search-rap input {
-    position: absolute;
-    right: 10px;
     width: 280px;
     height: 28px;
     border: 0;
     background: #f0efef;
     font-family: Poeti;
+	margin: 0;
+	float:left;
 }
 /* @noflip */
 .header .search-rap .icon {
@@ -196,15 +227,15 @@ h2.purpleColor {
     line-height: 30px;
 }
 /* @noflip */
-.header .search-rap {
+.header .header-search {
     float: left;
-    clear: both;
-    bottom: 3em;
-    width: 295px;
-    padding-left: 30px;
+}
+/* @noflip */ 	
+.header .search-rap {
     position: relative;
     z-index: 10;
     left: 0; 
+	float: left;
 }
 .header .mmmrap {
     position:relative;
@@ -219,17 +250,18 @@ h2.purpleColor {
 }
 /* @noflip */
 .header .menues {
-    clear: both;
-    /* border-top: 1px solid #dadada; */
+/*     clear: both;
+ */    /* border-top: 1px solid #dadada; */
     overflow: auto;
     /* border-bottom: 1px solid #dadada; */
     /* padding-top: 21px; */
     /* margin-right: 2px; */
     /* height: 48px; */
     overflow: visible;
-}
+	float:right;
+	}
 .header {
-    padding-top:38px;
+    padding-top:36px;
 }
 
 .header .menues nav .mtlp-rap .mmwp-rap .mmwp-item:last-child {
@@ -538,18 +570,22 @@ XXX.header .menues nav .mtlp-rap .mtlp-back {
     z-index: 9;
     border: 1px solid #a8a8a8;
     padding: 0px 10px;	
-    min-width:195px;
+    min-width:243px;
     top:30px;
 }
 .header .menues .smenu li span.smtlp{
     cursor:pointer;
     padding-bottom:20px;
 }
+.header .menues .smenu li, .search-rap {
+    margin-top: 27px;
+}
 /* @noflip */
 .header .menues .smenu li {
     margin-right: 2em;
-    margin-top: 3em;
     position: relative;
+	padding-top: 7px;
+	
 }
 /* @noflip */
 .header .menues .smenu {
@@ -557,8 +593,8 @@ XXX.header .menues nav .mtlp-rap .mtlp-back {
     font-size: 14px;
     font-weight: bold;
     /* bottom: -40px; */
-    width: 100%;
-    /* margin-left: 10px; */
+/*     width: 100%;
+ */    /* margin-left: 10px; */
     display: block;
     position: relative;
 }
@@ -582,21 +618,6 @@ body.home .main-img {
     position:relative;
 }
 
-.purpleBorder {
-    border-color:#b92f88;
-}
-.orangeBorder {
-    border-color:#f0862f;
-}
-.greenBorder {
-    border-color:#7cba46;
-}
-.blueBorder {
-    border-color:#6294c7;
-}
-.azureBorder {
-    border-color:#58b8da;
-}
 .purpleBack {
     background-color:#b92f88;
 }
@@ -657,6 +678,10 @@ body.home .main-img {
     font-family:Poeti-Bold;
     margin:0 0 15px;
     font-size: 18px;
+}
+
+.smtlp-rap a:hover {
+    background: #f4f4f4;
 }
 
 /* @noflip */
@@ -1168,11 +1193,16 @@ body.search .list.box .section .item .thumb ,
 /* @noflip */
 #sh-footer .contact-info span,
 #sh-footer .fmenu li {
-    border-left: 1px solid white;
     list-style-type: none;
     display: inline-block;
     padding: 0 7px;
     line-height: 18px;
+}
+
+@media only screen and (min-width: 768px){
+#sh-footer .fmenu li {
+    border-left: 1px solid white;
+}
 }
 /* @noflip */
 #sh-footer .sh-social-links a:first-child {

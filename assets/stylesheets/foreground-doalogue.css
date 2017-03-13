@@ -55,6 +55,8 @@ div[class*=" shapeshifted"]>p:first-child,
     width: 1.5em;
     background-image: url(https://upload.wikimedia.org/wikipedia/commons/5/5f/Document-pdf.svg);
 }
+.tool-file *:not(.floatleft):not(.fullImageLink):not(.thumb)>a[href$=".pdf"]:not(.image):after,
+.embedWrapper *:not(.floatleft):not(.fullImageLink):not(.thumb)>a[href$=".pdf"]:not(.image):after {display:none;}
 
 a[href$=".doc"]:not(.image):after,
 a[href$=".docx"]:not(.image):after {
@@ -362,7 +364,14 @@ blockquote {
 li.divider.show-for-small {
     opacity: 0;
 }
+/*  יישור תמונה */
+.thumb.tnone > .thumbinner {
+    margin: auto;
+}
 
+.center {
+    text-align: center;
+}
 
 /* תוכן עניינים */
 
@@ -530,3 +539,6 @@ table.floatleft {
 .ns-8 .mw-highlight pre {
     direction: rtl;
 }
+
+
+

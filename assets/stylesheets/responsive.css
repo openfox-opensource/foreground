@@ -151,8 +151,8 @@
     float: left;
     left: 0px;
     margin-left: 5%;
-    top:0;
-}
+    top: 64px;
+	}
 /* @noflip */
 .WDefault.stickyMenu .header.mopened .mmarrow.hide{
     margin:0 5%;
@@ -222,7 +222,7 @@
 .WMedium .header .menues ,
 .WSWide .header .menues ,
 .WSmall .header .menues {
-    position: relative;
+    position: absolute;
     height: auto;
     z-index: 99999;
     width: 260px;
@@ -231,7 +231,7 @@
     padding: 0;
     right: auto;
     border: 1px solid #a8a8a8;
-    padding-bottom: 100px;
+    /* padding-bottom: 100px; */
 }
 .stickyMenu .header .menues nav li.mcurr ,
 .WMedium .header .menues nav li.mcurr ,
@@ -251,7 +251,7 @@
 .WSWide .header .menues nav li .smtlp,
 .WSWide .header .menues nav li a,
 .WSmall .header .menues .smenu li .smtlp-rap a,
-.WSmall .header .menues nav li .smtlp,
+/* .WSmall .header .menues nav li .smtlp, */
 .WSmall .header .menues nav li a {
     padding: 15px;
     display:block;
@@ -435,8 +435,11 @@ body.stickyMenu .header .lang {
     height: 60px;
     line-height: 60px;
     font-size: 24px;
-    width: 75%;	
+    width: 100%;
+    right: 0;
+    left: 0;
 }
+
 /* @noflip */
 .WMedium.stickyMenu .header.mopened .menues.mmrap ,
 .WDefault.stickyMenu .header.mopened .menues.mmrap ,
@@ -531,14 +534,14 @@ body.stickyMenu .header .lang {
 }
 /* @noflip */
 .WSmall .header .search-rap {
-    position: absolute;
+    position: fixed;
     top: 76px;
     display: none;
-    margin:0;
-    height:60px;
+    margin: 0;
+    height: 60px;
     right: 0;
     left: 0;
-    width: auto;
+    width: 100%;
 }
 /* @noflip */
 .WSWide .header .search-rap span.icon {
@@ -549,9 +552,11 @@ body.stickyMenu .header .lang {
 .WSWide .header .search-rap .icon ,
 .WSmall .header .search-rap .icon {
     font-size: 50px;
-    top: 5px;
+    top: 15px;
     font-family: Poeti;
     font-weight: normal;
+	right: 6px;
+    opacity: .6;
 }
 body.stickyMenu {
     padding-top:152px	
