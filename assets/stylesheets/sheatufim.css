@@ -104,6 +104,7 @@ h2.purpleColor {
     line-height: 23px;
     padding: 0 1em;
     width: 90%;
+	height:100%;
     max-width: 1300px;
     margin: 0 auto;
     /* display: table; */
@@ -137,6 +138,7 @@ h2.purpleColor {
     width: 100%;
 	padding: 0;
 	}
+	.fund-credit {display:none;}
 }
 @media only screen and (min-width: 768px){
 	.logo {
@@ -206,7 +208,7 @@ h2.purpleColor {
 }
 /* @noflip */
 .header .search-rap input {
-    width: 280px;
+    width: 332px;
     height: 28px;
     border: 0;
     background: #f0efef;
@@ -613,9 +615,31 @@ body.home .main-img {
     max-height:400px;
     height: auto;
     min-height:200px;
-    overflow:hidden;
-    width:100%;
+/*     overflow:hidden; */ 
+	width:100%;
     position:relative;
+}
+/* @noflip */
+.fund-credit {
+    text-align: left;
+    padding-left: 8%;
+    font-weight: bold;
+    font-size: 14px;
+    margin-bottom: 1em;
+    position: absolute;
+    left: 0;
+    top: -62px;
+}
+/* @noflip */
+.ns-100 .sh-breadcrumbs > *:nth-child(2) {
+    margin-left: 21em;
+}
+/* @noflip */
+.fund-credit img {
+    height: 3em;
+    width: initial;
+    margin-right: 1em;
+    vertical-align: text-bottom;
 }
 
 .purpleBack {
