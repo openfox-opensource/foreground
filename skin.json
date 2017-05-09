@@ -5,19 +5,19 @@
         "[http://kwiki.co.il Kwiki]",
         "[[mw:user:HagaiAsaban|Hagai Asaban]]"
     ],
-    "url": "http://sheatufim.com",
-    "descriptionmsg": "foreground-desc",
+    "url": "http://www.sheatufim.org.il",
+    "descriptionmsg": "sheatufim-desc",
     "type": "skin",
     "ValidSkinNames": {
-        "foreground": "Foreground"
+		"sheatufim": "Sheatufim"
     },
     "AutoloadClasses": {
-        "SkinForeground": "sheatufim.skin.php",
-        "foregroundTemplate": "sheatufim.skin.php"    
+        "SkinSheatufim": "sheatufim.skin.php",
+        "sheatufimTemplate": "sheatufim.skin.php"    
     },
     "ResourceFileModulePaths": {
         "localBasePath": "",
-        "remoteSkinPath": "foreground"
+        "remoteSkinPath": "sheatufim"
     },
     "config": {},
     "manifest_version": 1

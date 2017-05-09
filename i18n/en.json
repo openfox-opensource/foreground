@@ -1,9 +1,12 @@
 {
 	"@metadata": {
 		"authors": [
+			"kwiki",
 			"Garrick Van Buren"
 		]
 	},
+	"skinname-sheatufim": "Sheatufim",
+	"sheatufim-desc": "a Skin for Sheatufim Knowledge base, founded on foreground",
 	"skinname-foreground": "Foreground",
 	"foreground-desc": "Provides a skin that focuses on putting your content in the foreground",
 	"foreground-browsermsg": "may not look as expected in this version of Internet Explorer. We recommend you upgrade to a newer version of Internet Explorer or switch to a browser like Firefox or Chrome.",

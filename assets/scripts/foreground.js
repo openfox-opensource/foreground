@@ -23,14 +23,6 @@ $(document).ready(function(){
 jQuery(document).ready(function() {
   // Add the 'less than IE9' class to appropriate version of IE by checking for their support of cssFloat (true in v9)
   if (!jQuery.support.cssFloat) { jQuery('html').addClass('lt-ie9').addClass('no-js'); }
-
- //jQuery('#load-jobiz').load('/outsource/jobiz.html .searchResults.timeLine'); //jobiz manhigut
-
-
-  jQuery(document).foundation(function (response) {
-    // console.log(response.errors); < this line will produce error in ie9!
-    if (window.console) console.log(response.errors);
-  });
   
   // The Echo extension puts an item in personal tools that Foreground really should have in the top menu
   // to make this easier, we move it here and loaded earlier to speed up transform

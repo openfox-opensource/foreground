@@ -1,14 +1,14 @@
 <?php
 
 /**
- * Skin file for Foreground
+ * Skin file for Sheatufim
  *
  * @file
  * @ingroup Skins
  */
  
-class Skinforeground extends SkinTemplate {
-    public $skinname = 'foreground', $stylename = 'foreground', $template = 'foregroundTemplate', $useHeadElement = true;
+class Skinsheatufim extends SkinTemplate {
+    public $skinname = 'sheatufim', $stylename = 'sheatufim', $template = 'sheatufimTemplate', $useHeadElement = true;
 
 	public function setupSkinUserCss(OutputPage $out) {
 		parent::setupSkinUserCss($out);
@@ -38,7 +38,7 @@ class Skinforeground extends SkinTemplate {
 					header('X-UA-Compatible: IE=edge');
 				break;
 		}
-        $out->addModuleStyles('skins.foreground');
+        $out->addModuleStyles('skins.sheatufim');
 	}
 
 	public function initPage( OutputPage $out ) {
@@ -47,12 +47,12 @@ class Skinforeground extends SkinTemplate {
 
 		$viewport_meta = 'width=device-width, user-scalable=yes, initial-scale=1.0';
 	  $out->addMeta('viewport', $viewport_meta);
-        $out->addModuleScripts('skins.foreground');
+        $out->addModuleScripts('skins.sheatufim');
 	}
 
 }
 
-class foregroundTemplate extends BaseTemplate {
+class sheatufimTemplate extends BaseTemplate {
 	public function execute() {
 		global $wgUser;
 		global $wgForegroundFeatures;
@@ -77,7 +77,7 @@ class foregroundTemplate extends BaseTemplate {
             $displaytitle = str_replace($pagetitle, $newtitle, $displaytitle);
         } 
 ?>
-    <!-- START ForegroundTemplate -->
+    <!-- START SheatufimTemplate -->
     <header class="header">
         <div class="header-site">
 			<a class="logo" href="<?php echo $this->data['nav_urls']['mainpage']['href']; ?>">
@@ -106,19 +106,19 @@ class foregroundTemplate extends BaseTemplate {
 				<div class="menues mmrap">
 					<nav class="smenu">
 						<ul>
-							<li><a href="/שיתופים:אודות"><span class="smtlp">על הפורטל<span class="hide icon icon-svg_icons_arrow"></span></a></span></li>
+							<li><a href="/על_פורטל_הידע"><span class="smtlp">על הפורטל<span class="hide icon icon-svg_icons_arrow"></span></a></span></li>
 							<li><a href="//sheatufim.org.il">על שיתופים<span class="hide icon icon-svg_icons_arrow"></span></a></li>
-							<li><a href="/פורטל:פורטלים"><span class="smtlp">ארגזי כלים<span class="hide icon icon-svg_icons_arrow"></span></a></span>
+							<li><a href="/ארגז_כלים:שולחן העבודה למנהל החברתי"><span class="smtlp">ארגזי כלים<span class="hide icon icon-svg_icons_arrow"></span></a></span>
 								<div class="smtlp-arrow"></div>
 								<div class="smtlp-rap">
-									<a href="/פורטל:שולחן העבודה למנהל החברתי">שולחן העבודה למנכ"ל החברתי<span class="hide icon-svg_icons_arrow"></span></a>
-									<a href="/פורטל:שולחן העבודה למנהל החברתי"> הספרייה – מדריכים למנכ"ל החברתי<span class="hide icon-svg_icons_arrow"></span></a>
-									<a href="/פורטל:ארגז הכלים לניהול פיננסי"> ארגז הכלים לניהול פיננסי<span class="hide icon-svg_icons_arrow"></span></a>
-									<a href="/פורטל:ארגז הכלים לניהול מענקים">ארגז הכלים לניהול מענקים<span class="hide icon-svg_icons_arrow"></span></a>
-									<a href="/פורטל:ארגז כלים לניהול אסטרטגי"> ארגז הכלים לניהול אסטרטגי<span class="hide icon-svg_icons_arrow"></span></a>
+									<a href="/ארגז_כלים:שולחן העבודה למנהל החברתי">שולחן העבודה למנכ"ל החברתי<span class="hide icon-svg_icons_arrow"></span></a>
+									<a href="/%D7%90%D7%A8%D7%92%D7%96_%D7%9B%D7%9C%D7%99%D7%9D:%D7%94%D7%A1%D7%A4%D7%A8%D7%99%D7%99%D7%94_-_%D7%9E%D7%93%D7%A8%D7%99%D7%9B%D7%99%D7%9D_%D7%9C%D7%9E%D7%A0%D7%9B%22%D7%9C_%D7%94%D7%97%D7%91%D7%A8%D7%AA%D7%99"> הספרייה – מדריכים למנכ"ל החברתי<span class="hide icon-svg_icons_arrow"></span></a>
+									<a href="/ארגז_כלים:ארגז הכלים לניהול פיננסי"> ארגז הכלים לניהול פיננסי<span class="hide icon-svg_icons_arrow"></span></a>
+									<a href="/ארגז_כלים:ארגז הכלים לניהול מענקים">ארגז הכלים לניהול מענקים<span class="hide icon-svg_icons_arrow"></span></a>
+									<a href="/ארגז_כלים:ארגז כלים לניהול אסטרטגי"> ארגז הכלים לניהול אסטרטגי<span class="hide icon-svg_icons_arrow"></span></a>
 								</div>
 							</li>
-							<li><a href="//sheatufim.org.il/contact-us/">צור קשר<span class="hide icon icon-svg_icons_arrow"></span></a></li>			
+							<li><a href="http://www.sheatufim.org.il/contact-us/">צור קשר<span class="hide icon icon-svg_icons_arrow"></span></a></li>			
 						</ul>
 					</nav>
 				</div>
@@ -139,9 +139,11 @@ class foregroundTemplate extends BaseTemplate {
             <div id="contentSub" class="clear_both sh-border-top">
                 <div class="sh-breadcrumbs">
                     <div class="sh-breadcrumbs-item">
-                        <a href="#">
-                            <?php print $namespace; ?>
-                        </a>
+					<?php if ( $namespace != '') { ?>
+						<a href="/<?php print $namespace;?>"><?php print $namespace;?>
+					</a> <?php }
+						else { ?>
+						<a href="<?php echo $this->data['nav_urls']['mainpage']['href']; ?>">מאגר הידע</a> <?php } ?>
                         <span> &gt; </span>
                         <a href="#">
                             <?php print $displaytitle; ?>                                    
@@ -167,12 +169,6 @@ class foregroundTemplate extends BaseTemplate {
                             <?php wfRunHooks( SkinTemplateToolboxEnd, array( &$this, true ) );  ?>
                         </ul>
                     </div>
-                    <?php else: ?>
-                    <a href="/מיוחד:כניסה_לחשבון" class="nav-bar-btn">
-                        <i class="fa fa-sign-in" aria-hidden="true">
-                            <span class="show-for-medium-up">&nbsp;התחבר</span>
-                        </i>
-                    </a>
                     <?php endif; ?>
                 </div>  
             </div>
@@ -216,13 +212,19 @@ class foregroundTemplate extends BaseTemplate {
                 <a target="_blank" href="https://www.youtube.com/user/sheatufim" class="icon-svg_icons_youtube"></a>
             </div>
             <nav class="fmenu">
-                <li class=""><a href="#">אודות</a></li>
-                <li class=""><a target="_blank" href="datacenter-link">מאגר המידע והידע</a></li>
-                <li class=""><a href="#">חדשות</a></li>
-                <li class=""><a href="#">מפת אתר</a></li>
-                <li class=""><a href="#">תנאי שימוש</a></li>
+                <li class=""><a href="/על_פורטל_הידע">על הפורטל</a></li>
+                <li class=""><a target="_blank" href="//www.sheatufim.org.il">אתר שיתופים</a></li>
+                <li class=""><a href="//www.sheatufim.org.il/contact-us/">צור קשר</a></li>
+                <li class=""><a href="//www.sheatufim.org.il/תנאי-שימוש/">תנאי שימוש</a></li>
+				 <?php if (!$wgUser->isLoggedIn()): ?>
+                <li class=""><a href="/מיוחד:כניסה_לחשבון" class="">
+                        <i class="fa fa-sign-in" aria-hidden="true">
+                            <span class="show-for-medium-up">&nbsp;התחבר</span>
+                        </i>
+                    </a>
+				</li>                    <?php endif; ?>
             </nav>
-            <a class="logo" href="#">
+            <a class="logo" href="http://www.sheatufim.org.il/">
                 <img title="שיתופים - אסטרטגיות להשפעה חברתית" src="/w/upload/sheatufim/logo-footer.png">
             </a>
             <div class="contact-info"><span>כתובת: ת.ד. 3225 בית יהושע 40591</span><span>טלפון: 09-8301400</span><span>פקס: 09-8990889</span></div>
