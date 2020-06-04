@@ -1,12 +1,9 @@
-
 jQuery(document).ready(function() {
-	
   // Add the 'less than IE9' class to appropriate version of IE by checking for their support of cssFloat (true in v9)
   if (!jQuery.support.cssFloat) { jQuery('html').addClass('lt-ie9').addClass('no-js'); }
 
-
+  // Log errors
   jQuery(document).foundation(function (response) {
-    // console.log(response.errors); < this line will produce error in ie9!
     if (window.console) console.log(response.errors);
   });
   
@@ -15,14 +12,14 @@ jQuery(document).ready(function() {
   jQuery("#pt-notifications").prependTo("#echo-notifications-alerts");
   jQuery("#pt-notifications-message").prependTo("#echo-notifications-messages");
   jQuery("#pt-notifications-alert").prependTo("#echo-notifications-alerts");
+  jQuery("#pt-notifications-notice").prependTo("#echo-notifications-notice");
   
   // Append font-awesome icons
   jQuery('[id^=ca-nstab] a').prepend('<div class="drop-icon"><i class="fa fa-file fa-fw"></i></div>')
   jQuery('li#ca-talk a').prepend('<div class="drop-icon"><i class="fa fa-comments-o fa-fw"></i></div>')
   jQuery('li#ca-edit a').prepend('<div class="drop-icon"><i class="fa fa-pencil-square-o fa-fw"></i></div>')
-  jQuery('li#ca-ve-edit a').prepend('<div class="drop-icon"><i class="fa fa-pencil fa-fw"></i></div>')
-  jQuery('li#ca-viewsource a').prepend('<div class="drop-icon"><i class="fa fa-book fa-fw"></i></div>')
   jQuery('li#ca-form_edit a').prepend('<div class="drop-icon"><i class="fa fa-pencil-square fa-fw"></i></div>')
+  jQuery('li#ca-formedit a').prepend('<div class="drop-icon"><i class="fa fa-pencil-square fa-fw"></i></div>')
   jQuery('li#ca-history a').prepend('<div class="drop-icon"><i class="fa fa-history fa-fw"></i></div>')
   jQuery('li#ca-delete a').prepend('<div class="drop-icon"><i class="fa fa-trash-o fa-fw"></i></div>')
   jQuery('li#ca-move a').prepend('<div class="drop-icon"><i class="fa fa-truck fa-fw"></i></div>')
@@ -74,6 +71,11 @@ if ( jQuery( '#ca-addsection' ).length ) {
   // Turn categories into labels
   jQuery('#mw-normal-catlinks ul li a').addClass('label');
 
+// Have to wait until the window is fully loaded because of Visual Editor to prepend icons for editing
+jQuery(window).load(function() {
+  jQuery('li#ca-ve-edit a').prepend('<div class="drop-icon"><i class="fa fa-pencil fa-fw"></i></div>')
+  jQuery('li#ca-viewsource a').prepend('<div class="drop-icon"><i class="fa fa-book fa-fw"></i></div>')
+});
   // Make the Page Action button respond to hover
   //jQuery('button.button').mouseenter(function(){
   //  jQuery('ul#drop1').addClass('open').addClass('right').css('top', '32px').css('left', '785px');
@@ -82,3 +84,4 @@ if ( jQuery( '#ca-addsection' ).length ) {
   //  jQuery('ul#drop1').removeClass('open').css('top', '-9999px').css('left', '785px');
   //});
 });
+
