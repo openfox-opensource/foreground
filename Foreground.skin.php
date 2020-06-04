@@ -55,6 +55,7 @@ class Skinforeground extends SkinTemplate {
 
 class foregroundTemplate extends BaseTemplate {
 	public function execute() {
+	//	$new_body = DeToc::RemoveToc( $this->data[ 'bodycontent' ], $extracted_toc );
 		global $wgUser;
 		global $wgForegroundFeatures;
 		wfSuppressWarnings();
@@ -68,6 +69,7 @@ class foregroundTemplate extends BaseTemplate {
 			default:
 				echo "<div id='navwrapper' class='". $wgForegroundFeatures['NavWrapperType']. "'>";
 				break;
+				
 		}
 		// Set default variables for footer and switch them if 'showFooterIcons' => true
 		$footerLeftClass = 'small-8 large-centered columns text-center';
@@ -86,7 +88,8 @@ class foregroundTemplate extends BaseTemplate {
 		}
 ?>
 <!-- START FOREGROUNDTEMPLATE -->
-		<nav class="top-bar" data-topbar role="navigation">
+<!-- NAV -->
+		<nav class="top-bar contain-to-grid" data-topbar role="navigation" >
 			<ul class="title-area">
 				<li class="name">
 					<h1 class="title-name">
@@ -147,10 +150,32 @@ class foregroundTemplate extends BaseTemplate {
 
 			</ul>
 		</section>
+						<?php if ($wgUser->isLoggedIn()): ?>
+							<div id="echo-notifications">
+							<div id="echo-notifications-alerts"></div>
+							<div id="echo-notifications-messages"></div>
+							</div>
+						<?php endif; ?>
 		</nav>
 		
 		<?php if ($wgForegroundFeatures['NavWrapperType'] != '0') echo "</div>"; ?>
-		
+       		<!-- Modal UX -->
+				<?php /*if ($wgUser->isLoggedIn() || $wgForegroundFeatures['showActionsForAnon']): 
+					require "Modals.php";
+				endif;*/ ?>
+		<!-- page content -->
+					<!-- START TOC 
+			<?php  /*
+				$extracted_toc=preg_replace('!<ul>!','<ul id="toc-ul">',$extracted_toc,1);
+				if($extracted_toc) { 
+			?>
+			<div class="port" id="new-toc" data-magellan-expedition="fixed">
+				<dl class="sub-nav">
+					<?php  echo $extracted_toc;  ?>
+				</dl>
+		    </div> -->
+			<?php }                           */  ?>
+			<!-- END TOC -->
 		<div id="page-content">
 		<div class="row">
 				<div class="large-12 columns">
@@ -165,22 +190,17 @@ class foregroundTemplate extends BaseTemplate {
 
 		<div id="mw-js-message" style="display:none;"></div>
 
-		<div class="row">
+		<div class="row" id="main-row">
+
 				<div id="p-cactions" class="large-12 columns">
-					<?php if ($wgUser->isLoggedIn() || $wgForegroundFeatures['showActionsForAnon']): ?>
-						<a id="actions-button" href="#" data-dropdown="actions" data-options="align:left; is_hover: true; hover_timeout:700" class="button small secondary radius"><i class="fa fa-cog"><span class="show-for-medium-up">&nbsp;<?php echo wfMessage( 'actions' )->text() ?></span></i></a>
+									<?php if ($wgUser->isLoggedIn() || $wgForegroundFeatures['showActionsForAnon']): ?>
 						<!--RTL -->
-						<ul id="actions" class="f-dropdown" data-dropdown-content>
+						<ul id="actions" class="f-dropdown sticky" data-sticky data-options="marginTop:45px; sticky_on: large">
 							<?php foreach( $this->data['content_actions'] as $key => $item ) { echo preg_replace(array('/\sprimary="1"/','/\scontext="[a-z]+"/','/\srel="archives"/'),'',$this->makeListItem($key, $item)); } ?>
 							<?php wfRunHooks( 'SkinTemplateToolboxEnd', array( &$this, true ) );  ?>
 						</ul>
 						<!--RTL -->
-						<?php if ($wgUser->isLoggedIn()): ?>
-							<div id="echo-notifications">
-							<div id="echo-notifications-alerts"></div>
-							<div id="echo-notifications-messages"></div>
-							</div>
-						<?php endif; ?>
+
 					<?php endif;
 					$namespace = str_replace('_', ' ', $this->getSkin()->getTitle()->getNsText());
 					$displaytitle = $this->data['title'];
@@ -203,9 +223,15 @@ class foregroundTemplate extends BaseTemplate {
 				</div>
 		    </div>
 		</div>
-
+       		<!-- MAterial UX -->
+				<?php /* if ($wgUser->isLoggedIn() || $wgForegroundFeatures['showActionsForAnon']): 
+					require "MaterialUX.php";
+				endif; */ ?>
+       		<!-- footer -->
+		
 			<footer class="row">
 				<div id="footer">
+
 					<?php if ($wgForegroundFeatures['addThisFollowPUBID'] != '') { ?>
 						<div class="social-footer large-12 small-12 columns">
 							<div class="social-links">
@@ -238,7 +264,6 @@ class foregroundTemplate extends BaseTemplate {
 		</div>
 		
 		<?php $this->printTrail(); ?>
-
 		</body>
 		</html>
 

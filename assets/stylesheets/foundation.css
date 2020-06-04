@@ -2739,7 +2739,9 @@ meta.foundation-mq-topbar {
   margin-bottom: 1.25rem;
   padding: 1.25rem;
   background: #f2f2f2;
-  color: #333333; }
+  color: #333333; 
+  overflow: hidden;
+	  }
   .panel > :first-child {
     margin-top: 0; }
   .panel > :last-child {

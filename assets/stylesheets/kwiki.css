@@ -1,0 +1,228 @@
+/* VISUEL EDITOR SHOW/HIDE */
+.ve-show {
+display:none;
+}
+.ve-active .ve-show {
+display:block;
+}
+.ve-active .ve-hide {
+display:none;
+}
+
+.atss {
+	z-index: 29 !important;
+}
+
+/* center images */
+.center .thumbinner {
+    margin: auto;
+}
+/* submit button */
+input[type="submit"] {
+    background-color: #1da1f2;
+    border-color: transparent;
+    color: white;
+    box-shadow: black 2px 4px 14px -4px;
+    -webkit-transition: all 300ms ease-out;
+    transition: all 300ms ease-out;
+    font-size: 1.5em;
+    margin: auto;
+    display: block;
+    padding: 10px;
+}
+
+input[type="submit"]:hover {
+    background-color: #0177b5;
+    box-shadow: black 2px 6px 14px -4px;
+}
+/* wikitext in templates */
+span.oo-ui-iconElement-icon.oo-ui-icon-wikiText {
+    display: none !important;
+}
+
+.ve-ui-mwParameterPage-field {
+    padding: 0.75em 0 !important;
+}
+
+.ve-ui-mwParameterPage-info {
+    padding-right: 0 !important;
+}
+
+.ve-ui-mwParameterPage-actions {
+    right: 2em !important;
+}
+/*.ve-init-mw-desktopArticleTarget-editableContent {display:block !important;}*/
+/* .ve-ce-focusableNode-highlight[title="#tag:YouTubeURL"] */
+/* RESPONSIVE FRAME */
+.responsive-wrapper {
+    position: relative;
+    padding-bottom: 53%;
+    padding-top: 25px;
+    height: 0;
+    max-width: 900px;
+    margin: auto;
+    overflow: hidden;
+}
+.responsive-wrapper > * {
+    position: absolute;
+    top: 0;
+    right: 0;
+    width: 100%;
+    height: 100%;
+}
+
+.responsive-wrapper h2 {
+    margin: auto;
+    text-align: center;
+    top: 39%;
+    text-shadow: #000 2px 2px 0px;
+    color: #fff;
+	}
+.responsive-wrapper img {
+    filter: brightness(.5);
+}
+.responsive-wrapper.video img {
+    filter: brightness(1);
+	width: 100%;
+}
+.responsive-wrapper.panel {
+    background: #b9b9b9;
+	}
+/*contain images & other elements in screen */
+.thumb > .thumbinner {
+    max-width: 100%;
+}
+
+code {
+    white-space: pre-wrap;
+    white-space: -moz-pre-wrap;
+    white-space: -pre-wrap;
+    white-space: -o-pre-wrap;
+    word-wrap: break-word;
+}
+/* Breadcrumbs */
+
+.ns-special #breadcrumbs2 {
+	display: none;
+}
+
+/* templates */
+/* ppt embed */
+.ns-150 .ve-ui-mwMediaDialog-panel-settings.oo-ui-layout.oo-ui-menuLayout.oo-ui-menuLayout-before.oo-ui-menuLayout-showMenu.oo-ui-bookletLayout, .ns-160 .ve-ui-mwMediaDialog-panel-settings.oo-ui-layout.oo-ui-menuLayout.oo-ui-menuLayout-before.oo-ui-menuLayout-showMenu.oo-ui-bookletLayout {
+    display: none;
+}
+.ns-160 .ve-ui-mwTransclusionContentPage,
+.ns-150 .ve-ui-mwTransclusionContentPage {
+    display: none !important;
+}
+
+.ns-150 .oo-ui-window-foot .oo-ui-buttonElement-framed.oo-ui-widget-enabled > .oo-ui-buttonElement-button,
+.ns-160 .oo-ui-window-foot .oo-ui-buttonElement-framed.oo-ui-widget-enabled > .oo-ui-buttonElement-button {
+    background-color: #1da1f2;
+    color: #FFF;
+    border: 1px solid #9aa0a7;
+    box-shadow: black 1px 3px 10px -3px;
+transition: all .3s ease;
+	}
+.ns-150 .oo-ui-window-foot .oo-ui-buttonElement-framed.oo-ui-widget-enabled > .oo-ui-buttonElement-button:hover,
+.ns-160 .oo-ui-window-foot .oo-ui-buttonElement-framed.oo-ui-widget-enabled > .oo-ui-buttonElement-button:hover {
+ box-shadow: black 0px 4px 13px -3px;
+    background-color: #0177b5;
+}
+.ns-150 .oo-ui-processDialog-actions-other,
+.ns-160 .oo-ui-processDialog-actions-other {
+    text-align: center;
+}
+
+
+/* upload page */
+#mw-upload-form fieldset {
+    line-height: 1.6em;
+    padding: 0 1em;
+}
+#mw-upload-form > fieldset:nth-child(2) {
+    width: 70%;
+    float: right;
+}
+
+#mw-upload-form > fieldset:nth-child(3) {
+    width: 28%;
+    float: left;
+}
+
+select#wpLicense {
+    width: auto;
+}
+textarea#wpUploadDescription {
+    height: 5em;
+}
+
+#mw-upload-form table {
+    margin-bottom: 0;
+}
+
+/* input box search box */
+.mw-inputbox-centered {
+    margin: 1em auto;
+    text-align: center;
+}
+
+.mw-inputbox-centered input.mw-inputbox-input {
+	width: auto;
+    margin: auto;
+}
+
+.mw-inputbox-centered input.mw-ui-button {
+    margin-top: 15px;
+}
+
+.mw-inputbox-centered .mw-inputbox-element.mw-ui-checkbox {
+    margin-right: 1em;
+}
+/* חיפוש מתקדם */
+fieldset#mw-searchoptions {
+    max-width: 328px;
+    float: right;
+}
+
+.mw-search-visualclear {
+    clear: none;
+}
+
+#mw-searchoptions table {
+    float: right;
+    margin: 5PX;
+	position:relative;
+}
+
+#mw-searchoptions table td {
+    position: relative;
+}
+
+#mw-searchoptions table input[type="checkbox"] {
+	visibility:hidden;
+}
+#mw-searchoptions table input[type="checkbox"] + label {
+    display: inline-block;
+    margin-left: 0.5rem;
+    margin-right: 1rem;
+    margin-bottom: 0;
+    vertical-align: baseline;
+    width: 100%;
+    position: absolute;
+    left: 0;
+    padding: 0;
+    margin: 0;
+    height: 100%;
+    text-indent: 1em;
+    line-height: 35px;
+}
+
+#mw-searchoptions table input[type="checkbox"]:checked + label {
+background:#00b3ee;
+}
+
+/* תבניות */ 
+.manual {
+	margin-right: 1em;
+}

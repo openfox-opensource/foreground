@@ -30,7 +30,8 @@
 				"assets/stylesheets/font-awesome.css",
 				"assets/stylesheets/foundation.css",
 				"assets/stylesheets/foreground.css",
-				"assets/stylesheets/foreground-print.css"
+				"assets/stylesheets/foreground-print.css",
+				"assets/stylesheets/kwiki.css"
 			]
 		},
 		"skins.foreground.modernizr": {

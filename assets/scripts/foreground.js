@@ -1,5 +1,6 @@
 
 jQuery(document).ready(function() {
+	
   // Add the 'less than IE9' class to appropriate version of IE by checking for their support of cssFloat (true in v9)
   if (!jQuery.support.cssFloat) { jQuery('html').addClass('lt-ie9').addClass('no-js'); }
 
@@ -80,5 +81,4 @@ if ( jQuery( '#ca-addsection' ).length ) {
   //jQuery('ul#drop1').mouseleave(function(){
   //  jQuery('ul#drop1').removeClass('open').css('top', '-9999px').css('left', '785px');
   //});
-
 });
