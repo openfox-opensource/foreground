@@ -47,9 +47,13 @@ $wgResourceModules['skins.foreground.styles'] = array(
 	'styles'         => array(
 		'foreground/assets/stylesheets/normalize.css',
 		'foreground/assets/stylesheets/font-awesome.css',
+	//	'foreground/assets/stylesheets/font-opensanshebrew.css'
 		'foreground/assets/stylesheets/foundation.css',
 		'foreground/assets/stylesheets/foreground.css',
-		'foreground/assets/stylesheets/foreground-print.css'
+		'foreground/assets/stylesheets/foreground-print.css',
+		'foreground/FullCalendar/fullcalendar.css',
+		'../../js/owl/owl.theme.css',
+		'../../js/owl/owl.carousel.css'
 	),
 	'remoteBasePath' => &$GLOBALS['wgStylePath'],
 	'localBasePath'  => &$GLOBALS['wgStyleDirectory']
@@ -70,6 +74,8 @@ $wgResourceModules['skins.foreground.js'] = array(
 		'foreground/assets/scripts/vendor/fastclick.js',
 		'foreground/assets/scripts/vendor/placeholder.js',
 		'foreground/assets/scripts/foundation/foundation.js',
+		'foreground/assets/scripts/foreground.js',
+		'foreground/assets/scripts/foundation/foundation.orbit.js',
 		'foreground/assets/scripts/foundation/foundation.topbar.js',
 		'foreground/assets/scripts/foundation/foundation.dropdown.js',
 		'foreground/assets/scripts/foundation/foundation.joyride.js',
@@ -79,11 +85,10 @@ $wgResourceModules['skins.foreground.js'] = array(
 		'foreground/assets/scripts/foundation/foundation.equalizer.js',
 		'foreground/assets/scripts/foundation/foundation.interchange.js',
 		'foreground/assets/scripts/foundation/foundation.offcanvas.js',
-		'foreground/assets/scripts/foundation/foundation.orbit.js',
 		'foreground/assets/scripts/foundation/foundation.reveal.js',
 		'foreground/assets/scripts/foundation/foundation.tab.js',
 		'foreground/assets/scripts/foundation/foundation.tooltip.js',
-		'foreground/assets/scripts/foreground.js',
+		'../../js/owl/owl.carousel.js'
 	),
 	'dependencies'   => array(
 		'jquery.cookie',

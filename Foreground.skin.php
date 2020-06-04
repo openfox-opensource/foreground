@@ -85,15 +85,35 @@ class foregroundTemplate extends BaseTemplate {
 				break;	
 		}
 ?>
-<!-- START FOREGROUNDTEMPLATE -->
-		<nav class="top-bar" data-topbar role="navigation">
+
+<div id="over-top">
+	<div class="logo-wrapper">
+		<!--a href="/"><img id="top-logo" src="/w/upload/haogdan/thumb/c/c9/Logo.png/320px-Logo.png"/></a-->
+		<h1 class="top-name"><a href="/"><?php echo $wgForegroundFeatures['wikiName']; ?></a></h1><span class="beta">(גרסת בטא)</span>
+	</div>
+	<div class="title-wrapper">
+		<h1 id="title-top"><?php /* echo $wgForegroundFeatures['wikiName'];?> - <?*/ $this->msg( 'tagline' ) ?></h1>
+	</div>
+	<div class="social-wrapper">
+		<div class="contact-links">
+			<ul>
+				<li class="over-contact website"><a href="http://migzar3.org.il" target="_blank" title="אתר מנהיגות אזרחית"><img id="top-logo" src="/w/upload/haogdan/thumb/c/c9/Logo.png/320px-Logo.png"/></a></li>
+				<li class="over-contact"><a href="mailto:office@migzar3.org.il"  title="ליצירת קשר"><i class="fa fa-envelope"></i></a></li>
+				<li class="over-contact"><a href="https://www.facebook.com/manhigut.ez/" target="_blank" title="מנהיגות אזרחית בפייסבוק"><i class="fa fa-facebook"></i></a>
+			</ul>
+		</div>
+	</div>
+</div>
+<div class="sticky">
+ <!-- START FOREGROUNDTEMPLATE -->
+		<nav class="top-bar" data-topbar role="navigation" data-topbar role="navigation" data-options="sticky_on: large">
 			<ul class="title-area">
 				<li class="name">
 					<h1 class="title-name">
 					<a href="<?php echo $this->data['nav_urls']['mainpage']['href']; ?>">
-					<?php if ($wgForegroundFeatures['navbarIcon'] != '0') { ?>
+					<?php /* if ($wgForegroundFeatures['navbarIcon'] != '0') { ?>
 						<img alt="<?php echo $this->text('sitename'); ?>" class="top-bar-logo" src="<?php echo $this->text('logopath') ?>">
-					<?php } ?>					
+					<?php } */ ?>					
 					<div class="title-name" style="display: inline-block;"><?php echo $wgForegroundFeatures['wikiName']; ?></div>
 					</a>
 					</h1>
@@ -123,14 +143,14 @@ class foregroundTemplate extends BaseTemplate {
 					<form action="<?php $this->text( 'wgScript' ); ?>" id="searchform" class="mw-search">
 						<div class="row collapse">
 						<div class="small-12 columns">
-							<?php echo $this->makeSearchInput(array('placeholder' => wfMessage('searchsuggest-search')->text(), 'id' => 'searchInput') ); ?>
+							<?php echo $this->makeSearchInput(array(/* 'placeholder' => wfMessage('searchsuggest-search')->text(), */ 'id' => 'searchInput') ); ?>
 							<button type="submit" class="button search"><?php echo wfMessage( 'search' )->text() ?></button>
 						</div>
 						</div>
 					</form>
 				</li>
 				<li class="divider show-for-small"></li>
-
+                                 <?php if ($wgUser->isLoggedIn()): ?>
 				<li class="has-dropdown active"><a href="#"><i class="fa fa-cogs"></i></a>
 					<ul id="toolbox-dropdown" class="dropdown">
 						<?php foreach ( $this->getToolbox() as $key => $item ) { echo $this->makeListItem($key, $item); } ?>
@@ -144,11 +164,11 @@ class foregroundTemplate extends BaseTemplate {
 						<?php foreach ( $this->getPersonalTools() as $key => $item ) { echo $this->makeListItem($key, $item); } ?>
 					</ul>
 				</li>
-
+                                                <?php endif; ?>
 			</ul>
 		</section>
 		</nav>
-		
+	</div>	
 		<?php if ($wgForegroundFeatures['NavWrapperType'] != '0') echo "</div>"; ?>
 		
 		<div id="page-content">
@@ -190,9 +210,8 @@ class foregroundTemplate extends BaseTemplate {
 						$displaytitle = str_replace($pagetitle, $newtitle, $displaytitle);
 					?><h4 class="namespace label"><?php print $namespace; ?></h4><?php } ?>
 					<div id="content">
-					<h2  id="firstHeading" class="title"><?php print $displaytitle; ?></h2>
+					<h2  id="firstHeading" class="title sticky" data-sticky data-options="marginTop:40px;"><?php print $displaytitle; ?></h2>
 					<?php if ( $this->data['isarticle'] ) { ?><h3 id="tagline"><?php $this->msg( 'tagline' ) ?></h3><?php } ?>
-					<h5 id="siteSub" class="subtitle"><?php $this->html('subtitle') ?></h5>
 					<div id="contentSub" class="clear_both"></div>
 					<div id="bodyContent" class="mw-bodytext">
 						<?php $this->html('bodytext') ?>
@@ -204,41 +223,84 @@ class foregroundTemplate extends BaseTemplate {
 		    </div>
 		</div>
 
-			<footer class="row">
-				<div id="footer">
-					<?php if ($wgForegroundFeatures['addThisFollowPUBID'] != '') { ?>
-						<div class="social-footer large-12 small-12 columns">
-							<div class="social-links">
-							<!-- Go to www.addthis.com/dashboard to customize your tools -->
-							<div class="addthis_horizontal_follow_toolbox"></div>
-							<script type="text/javascript" src="//s7.addthis.com/js/300/addthis_widget.js#pubid=<?php echo $wgForegroundFeatures['addThisFollowPUBID'];?>"></script>
-							</div>
-						</div>
-					<?php } ?>
-					<div id="footer-left" class="<?php echo $footerLeftClass;?>">
-					<ul id="footer-left">
-						<?php foreach ( $this->getFooterLinks( "flat" ) as $key ) { ?>
-							<li id="footer-<?php echo $key ?>"><?php $this->html( $key ) ?></li>
-						<?php } ?>									
-					</ul>
-					</div>	
-					<div id="footer-right-icons" class="<?php echo $footerRightClass;?>">
-					<ul id="poweredby">
-						<?php foreach ( $this->getFooterIcons( $poweredbyType ) as $blockName => $footerIcons ) { ?>
-							<li class="<?php echo $blockName ?>"><?php foreach ( $footerIcons as $icon ) { ?>
-								<?php echo $this->getSkin()->makeFooterIcon( $icon, $poweredbyMakeType ); ?>
-								<?php } ?>
-							</li>
-						<?php } ?>
-					</ul>
-					</div>								
+		<footer class="footer">
+		
+		    <div id="footer" class="mediawiki-footer">
+
+				<!-- First Column -->
+
+				<div class="one-fourth">
+					<h3>אודות</h3>
+						<ul class="footer_links">
+							<li>הפרויקט הוקם על ידי <a href="//migzar3.org.il" target="_blank">מנהיגות אזרחית</a> וממומן על ידי <a href="http://www.theinstitute.org.il/index.php?dir=site&page=programs&op=view&cs=131&langpage=heb" target="_blank" >מיזם ממשלה-חברה אזרחית</a>: שותפות בין שבעה משרדי ממשלה – חינוך, רווחה, אוצר, בריאות, ראש הממשלה, קליטה, משפטים – ושל <a href="http://www.theinstitute.org.il/" target="_blank">מכון אלכא למנהיגות וממשל בג'וינט ישראל</a> הפועלת לטיוב ממשקים בין הממשל לחברה האזרחית.</li>
+							<li class="hr"><hr></li>
+							<li id="footer-about-new"><a href="/האוגדן:אודות" title="אודות האוגדן">אודות האוגדן</a></li>
+							<li id="footer-privacy-new"><a href="/האוגדן:מדיניות הפרטיות" title="מדיניות הפרטיות">מדיניות הפרטיות</a></li>
+							<li id="footer-disclaimer-new"><a href="/האוגדן:הבהרה משפטית" title="הבהרה משפטית">הבהרה משפטית</a></li>
+						</ul>
 				</div>
-			</footer>
+				
+				<!-- Second Column -->
+				
+				<div class="one-fourth">
+					<h3>קטגוריות</h3>
+						<ul class="footer_links">
+								<?php foreach ( $this->getFooterLinks( "flat" ) as $key ) { ?>
+									<li id="footer-<?php echo $key ?>"><?php $this->html( $key ) ?></li>
+								<?php } ?>
+						</ul>
+				</div>
+				
+				<!-- Third Column -->
+				
+				<div class="one-fourth">
+					<h3>תחומי ידע מרכזיים</h3>
+						<ul>
+							<li class="main-pages"><a href="/פורטל:מינהל_תקין">מינהל תקין</a></li>
+							<li class="main-pages"><a href="/פורטל:ביקורות_עומק">ביקורות עומק</a></li>
+							<li class="main-pages"><a href="/פורטל:מיסוי">מיסוי</a></li>
+							<li class="main-pages"><a href="/פורטל:משאבים_ממשלתיים">משאבים ממשלתיים</a></li>
+							<li class="hr"><hr></li>
+							<li id="guidstar"><a href="http://www.guidestar.org.il/GS_Index?lang=iw" target="_blank">לעדכון פרטי העמותה באתר גיידסטאר</a></li>
+						</ul>
+					<div id="social_icons">
+					
+					</div>
+				</div>
+				
+				<!-- Fourth Column -->
+				
+				<div class="one-fourth last">
+					<h3>שמרו על קשר</h3>
+						<ul>
+						<li>מנהיגות אזרחית</li>
+						<li class="manhigut-contact" target="_blank"><a href="//www.migzar3.org.il">www.migzar3.org.il</a>
+						<li class="manhigut-contact"><a href="tel:+972722785421">072-278-5421</a></li>
+						<li class="manhigut-contact"><a href="mailto: office@migzar3.org.il">office@migzar3.org.il</a></li>
+						<li class="fb"><a href="https://www.facebook.com/manhigut.ez/" target="_blank" title="מנהיגות אזרחית בפייסבוק"><i class="fa fa-facebook-square"></i></a></li>
+						<?php /*<li class="newsletter"><h3>הרשמה לניוזלטר</h3></li>
+						<li><iframe src="//migzar3.org.il/רק-הרשמה/" scrolling="no" frameborder="0" style="border:none;overflow:hidden;height: 69px; max-width: 81
+						vw;" allowtransparency="true"></iframe></li> */?>
+						<ul>
+				</div>
+				<div style="clear:both"></div>
+    
+			</div> <!-- END footer -->
+			<div class="built-by">
+				<ul>
+						<li >התכנים נכתבו על ידי <a href="http://www.ngocenter.org.il/" target="_blank">אלינור סידי</a> | </li>
+						<li>האתר נבנה על ידי <a href="https://openfox.co.il" target="_blank">OpenFox</a> |</li>
+						<li>Powered by <a href="https://mediawiki.org/" <?php //openfox.co.il/מדיה-ויקי ?> target="_blank" title="אתר מבוסס מדיה-ויקי">Mediawiki</a></li>
+				</ul>
+			</div>
+		</footer>
 
 		</div>
 		
 		<?php $this->printTrail(); ?>
-
+                       <?php if ($wgForegroundFeatures['addThisFollowPUBID'] != '') { ?>
+                       <script type="text/javascript" src="//s7.addthis.com/js/300/addthis_widget.js#pubid=<?php echo $wgForegroundFeatures['addThisFollowPUBID'];?>"></script>
+ 	               <?php } ?>
 		</body>
 		</html>
 

@@ -1,7 +1,19 @@
-
-jQuery(document).ready(function() {
+	jQuery(window).load(function() {
+jQuery("ol.special").owlCarousel({
+      items : 5, //10 items above 1000px browser width
+      itemsDesktop : [1000,5], //5 items between 1000px and 901px
+      itemsDesktopSmall : [900,3], // betweem 900px and 601px
+      itemsTablet: [600,2], //2 items between 600 and 0
+      itemsMobile : [200,1] // itemsMobile disabled - inherit from itemsTablet option
+  });
+ }); 
+	jQuery(window).load(function() {
+  
   // Add the 'less than IE9' class to appropriate version of IE by checking for their support of cssFloat (true in v9)
   if (!jQuery.support.cssFloat) { jQuery('html').addClass('lt-ie9').addClass('no-js'); }
+  
+ //  jQuery('#load-jobiz').load('/outsource/jobiz.html .searchResults.timeLine'); //jobiz manhigut
+
 
 
   jQuery(document).foundation(function (response) {
@@ -80,5 +92,24 @@ if ( jQuery( '#ca-addsection' ).length ) {
   //jQuery('ul#drop1').mouseleave(function(){
   //  jQuery('ul#drop1').removeClass('open').css('top', '-9999px').css('left', '785px');
   //});
+  
+// הרחב בדף ערך
+  jQuery('.expand').each(function () {
+    jQuery('p:gt(0)', this).hide();
+    var paras = this;
+    jQuery('a.read-more').click(function () {
+        jQuery('p:gt(0)', paras).slideToggle();
+		jQuery(this).text(function(i, text){
+         // return text === "סגור" ? "הצג עוד" : "סגור";
+           return text === "הצג פחות" ? "הצג עוד" : "הצג פחות";
+			})
+    });
+});
+
+// קיצור כותרת במרחב שם מטא
+if ($('#firstHeading:contains("המתווכת:")').length) {
+  $('#firstHeading').html($('#firstHeading').html().replace('המתווכת:', ''));
+}
 
 });
+
