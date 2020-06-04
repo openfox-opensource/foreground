@@ -57,7 +57,7 @@ class foregroundTemplate extends BaseTemplate {
 	public function execute() {
 		global $wgUser;
 		global $wgForegroundFeatures;
-		wfSuppressWarnings();
+		//wfSuppressWarnings();
 		$this->html('headelement');
 		switch ($wgForegroundFeatures['NavWrapperType']) {
 			case '0':
@@ -305,7 +305,7 @@ class foregroundTemplate extends BaseTemplate {
 		</html>
 
 <?php
-		wfRestoreWarnings();
+		//wfRestoreWarnings();
 	}
 }
 ?>
