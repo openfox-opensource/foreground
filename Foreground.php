@@ -5,6 +5,7 @@
  *
  * @file
  * @ingroup Skins
+<<<<<<< HEAD
  * @license 2-clause BSD
  */
 
@@ -12,12 +13,12 @@ if ( !defined( 'MEDIAWIKI' ) ) {
 	die( 'This is a skin to the MediaWiki package and cannot be run standalone.' );
 }
 
-$wgValidSkinNames['sheatufim'] = 'Sheatufim';
-$wgAutoloadClasses['SkinSheatufim'] = __DIR__ . '/sheatufim.skin.php';
-$wgMessagesDirs['SkinSheatufim'] = __DIR__ . '/i18n';
-$wgExtensionMessagesFiles['SkinSheatufim'] = __DIR__ . '/Sheatufim.i18n.php';
+$wgValidSkinNames['foreground'] = 'Foreground';
+// $wgAutoloadClasses['SkinSheatufim'] = __DIR__ . '/sheatufim.skin.php';
+// $wgMessagesDirs['SkinSheatufim'] = __DIR__ . '/i18n';
+// $wgExtensionMessagesFiles['SkinSheatufim'] = __DIR__ . '/Sheatufim.i18n.php';
 
-$wgResourceModules['skins.sheatufim'] = [
+$wgResourceModules['skins.foreground'] = [
 	'position'       => 'top',
 	'scripts'        => [
 		'sheatufim/assets/scripts/sheatufim.js',
@@ -59,3 +60,5 @@ $wgResourceModules['skins.sheatufim'] = [
 	'remoteBasePath' => &$GLOBALS['wgStylePath'],
 	'localBasePath'  => &$GLOBALS['wgStyleDirectory']
 ];
+
+wfLoadSkin('Foreground', "$wgStyleDirectory/sheatufim/skin.json");

@@ -1,6 +1,10 @@
-// פורטלים
-$(document).ready(function(){
-	if (jQuery('.portal').length > 0) { 
+
+
+jQuery(document).ready(function() {
+  // Add the 'less than IE9' class to appropriate version of IE by checking for their support of cssFloat (true in v9)
+  if (!jQuery.support.cssFloat) { jQuery('html').addClass('lt-ie9').addClass('no-js'); }
+
+  if (jQuery('.portal').length > 0) { 
         
         /* jQuery("#mw-content-text").shapeshift({
             minColumns: 2, 
@@ -18,15 +22,17 @@ $(document).ready(function(){
             });
         });
     }
-});
-
-jQuery(document).ready(function() {
-  // Add the 'less than IE9' class to appropriate version of IE by checking for their support of cssFloat (true in v9)
-  if (!jQuery.support.cssFloat) { jQuery('html').addClass('lt-ie9').addClass('no-js'); }
+  // Log errors
+  jQuery(document).foundation(function (response) {
+    if (window.console) console.log(response.errors);
+  });
   
   // The Echo extension puts an item in personal tools that Foreground really should have in the top menu
   // to make this easier, we move it here and loaded earlier to speed up transform
-  jQuery("#pt-notifications").prependTo("#echo-notifications");
+  jQuery("#pt-notifications").prependTo("#echo-notifications-alerts");
+  jQuery("#pt-notifications-message").prependTo("#echo-notifications-messages");
+  jQuery("#pt-notifications-alert").prependTo("#echo-notifications-alerts");
+  jQuery("#pt-notifications-notice").prependTo("#echo-notifications-notice");
   
   // Append font-awesome icons
 	$('#mw-input-wpFromAddress').attr("placeholder", "כתובת דוא''ל");
@@ -38,6 +44,7 @@ jQuery(document).ready(function() {
   jQuery('li#ca-edit a').prepend('<div class="drop-icon"><i class="fa fa-pencil-square-o fa-fw"></i></div>');
   jQuery('li#ca-viewsource a').prepend('<div class="drop-icon"><i class="fa fa-book fa-fw"></i></div>');
   jQuery('li#ca-form_edit a').prepend('<div class="drop-icon"><i class="fa fa-pencil-square fa-fw"></i></div>');
+    jQuery('li#ca-formedit a').prepend('<div class="drop-icon"><i class="fa fa-pencil-square fa-fw"></i></div>');
   jQuery('li#ca-history a').prepend('<div class="drop-icon"><i class="fa fa-history fa-fw"></i></div>');
   jQuery('li#ca-delete a').prepend('<div class="drop-icon"><i class="fa fa-trash-o fa-fw"></i></div>');
   jQuery('li#ca-move a').prepend('<div class="drop-icon"><i class="fa fa-truck fa-fw"></i></div>');
@@ -48,6 +55,8 @@ jQuery(document).ready(function() {
   jQuery('li#ca-purge a').prepend('<div class="drop-icon"><i class="fa fa-refresh fa-fw"></i></div>');
   jQuery('li#ca-undelete a').prepend('<div class="drop-icon"><i class="fa fa-undo fa-fw"></i></div>');
   jQuery('li#ca-ask_delete_permanently a').prepend('<div class="drop-icon"><i class="fa fa-cut fa-fw"></i></div>');
+  jQuery('li#t-cite a').prepend('<div class="drop-icon"><i class="fa fa-graduation-cap fa-fw"></i></div>');
+
 
 if ( jQuery( '#ca-addsection' ).length ) {
   jQuery('li#ca-addsection a').html('<div class="drop-icon"><i class="fa fa-plus fa-fw"></i></div>' + jQuery('li#ca-addsection a').attr('title').replace(/\[.+/g,""));
@@ -61,7 +70,10 @@ if ( jQuery( '#ca-addsection' ).length ) {
   jQuery('li#pt-watchlist a').prepend('<div class="drop-icon"><i class="fa fa-th-list fa-fw"></i></div>');
   jQuery('li#pt-mycontris a').prepend('<div class="drop-icon"><i class="fa fa-smile-o fa-fw"></i></div>');
   jQuery('li#pt-logout a').prepend('<div class="drop-icon"><i class="fa fa-power-off fa-fw"></i></div>');
-
+   jQuery('li#pt-login a').prepend('<div class="drop-icon"><i class="fa fa-sign-in fa-fw"></i></div>');
+  jQuery('li#pt-createaccount a').prepend('<div class="drop-icon"><i class="fa fa-lock fa-fw"></i></div>');
+  jQuery('li#pt-anonuserpage a').prepend('<div class="drop-icon"><i class="fa fa-user-secret fa-fw"></i></div>');
+  jQuery('li#pt-anontalk a').prepend('<div class="drop-icon"><i class="fa fa-commenting-o fa-fw"></i></div>');
   jQuery('li#t-smwbrowselink a').prepend('<div class="drop-icon"><i class="fa fa-eye fa-fw"></i></div>');
   jQuery('li#t-whatlinkshere a').prepend('<div class="drop-icon"><i class="fa fa-arrows fa-fw"></i></div>');
   jQuery('li#t-blockip a').prepend('<div class="drop-icon"><i class="fa fa-ban fa-fw"></i></div>');
@@ -76,6 +88,7 @@ if ( jQuery( '#ca-addsection' ).length ) {
   jQuery('li#t-permalink a').prepend('<div class="drop-icon"><i class="fa fa-dot-circle-o fa-fw"></i></div>');
   jQuery('li#t-info a').prepend('<div class="drop-icon"><i class="fa fa-info fa-fw"></i></div>');
   jQuery('li#feedlinks a').prepend('<div class="drop-icon"><i class="fa fa-rss fa-fw"></i></div>');
+
   
   jQuery('ul#toolbox-dropdown.dropdown>li#n-recentchanges a').prepend('<div class="drop-icon"><i class="fa fa-tasks fa-fw"></i></div>');
   jQuery('ul#toolbox-dropdown.dropdown>li#n-help a').prepend('<div class="drop-icon"><i class="fa fa-question fa-fw"></i></div>');
@@ -93,6 +106,13 @@ if ( jQuery( '#ca-addsection' ).length ) {
       //    jQuery('ul#drop1').removeClass('open').css('top', '-9999px').css('right', '1em');
       jQuery('ul#drop1').removeClass('open').css('top', '-9999px');
   });
-
+    // Have to wait until the window is fully loaded because of Visual Editor to prepend icons for editing
+  jQuery(window).load(function() {
+    jQuery('li#ca-ve-edit a').prepend('<div class="drop-icon"><i class="fa fa-pencil fa-fw"></i></div>')
+    jQuery('li#ca-viewsource a').prepend('<div class="drop-icon"><i class="fa fa-book fa-fw"></i></div>')
+  });
 });
+
+
+
 
