@@ -5,21 +5,21 @@
  * @see https://github.com/dyve/jquery-autocomplete
  */
 .acResults {
-	padding: 0px;
+	padding: 0;
 	border: 1px solid WindowFrame;
 	background-color: Window;
 	overflow: hidden;
 }
 
 .acResults ul {
-	margin: 0px;
-	padding: 0px;
+	margin: 0;
+	padding: 0;
 	list-style-position: outside;
-	list-style: none;	
+	list-style: none;
 }
 
 .acResults ul li {
-	margin: 0px;
+	margin: 0;
 	padding: 2px 5px;
 	cursor: pointer;
 	display: block;
@@ -29,7 +29,7 @@
 }
 
 .acLoading {
-	background : url('indicator.gif') right center no-repeat;
+	background: url( 'indicator.gif' ) right center no-repeat;
 }
 
 .acSelect {
