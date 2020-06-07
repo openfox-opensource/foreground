@@ -207,7 +207,7 @@
 		}
 		
 	}
-        $(".header .open-menu").click(function() {
+        $(".header .open-menu").on('click',function() {
             if ( $(".header").attr('class').indexOf('mopened') >= 0 ) {
                 $(".header").removeClass('mopened');
             } else {

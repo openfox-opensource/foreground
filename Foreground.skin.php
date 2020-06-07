@@ -286,7 +286,7 @@ class ForegroundTemplate extends BaseTemplate {
 		echo preg_replace( [ '/\sprimary="1"/','/\scontext="[a-z]+"/','/\srel="archives"/' ], '',
 						  $this->makeListItem( $key, $item ) );
 				   } ?>
-							<?php wfRunHooks( SkinTemplateToolboxEnd, [ &$this, true ] );  ?>
+							<?php Hooks::run( SkinTemplateToolboxEnd, [ &$this, true ] );  ?>
 						</ul>
 					</div>
 					<?php endif; ?>
@@ -464,7 +464,7 @@ class ForegroundTemplate extends BaseTemplate {
 	</html>
 
 	<?php
-		Wikimedia\wfRestoreWarnings();
+		Wikimedia\RestoreWarnings();
 	}
 }
 

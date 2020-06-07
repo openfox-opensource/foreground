@@ -36,7 +36,19 @@
 				"assets/stylesheets/font-awesome.css",
 				"assets/stylesheets/foundation.css",
 				"assets/stylesheets/foreground.css",
-				"assets/stylesheets/foreground-print.css"
+				"assets/stylesheets/foreground-print.css",
+				"assets/stylesheets/jquery.autocomplete.css",
+				"assets/stylesheets/responsive-tables.css",
+				"assets/stylesheets/foreground-doalogue.css",
+				"assets/stylesheets/jquery-ui.css",
+				"assets/stylesheets/sheatufim-icons.css",
+				"assets/stylesheets/kwiki-icons.css",
+				"assets/stylesheets/material-icons.css",
+				"assets/stylesheets/sheatufim.css",
+				"assets/stylesheets/accessibility.css",
+				"assets/stylesheets/templates.css",
+				"assets/stylesheets/group-user.css",
+				"assets/stylesheets/responsive.css"
 			]
 		},
 		"skins.foreground.modernizr": {
@@ -48,6 +60,7 @@
 		"skins.foreground.js": {
 			"position": "bottom",
 			"scripts": [
+				"assets/scripts/sheatufim.js",
 				"assets/scripts/vendor/placeholder.js",
 				"assets/scripts/foundation/foundation.js",
 				"assets/scripts/foundation/foundation.topbar.js",
@@ -63,7 +76,14 @@
 				"assets/scripts/foundation/foundation.reveal.js",
 				"assets/scripts/foundation/foundation.tab.js",
 				"assets/scripts/foundation/foundation.tooltip.js",
-				"assets/scripts/foreground.js"
+				"assets/scripts/foundation/foundation.section.js",
+				"assets/scripts/foreground.js",
+				"assets/scripts/vendor/modernizr.js",
+				"assets/scripts/foundation/foundation.cookie.js",
+				"assets/scripts/foundation/foundation.placeholder.js",
+				"assets/scripts/foundation/foundation.forms.js",
+				"assets/scripts/foundation/foundation.alerts.js",
+				"assets/scripts/group-user.js"
 			],
 			"dependencies": [
 				"jquery.cookie",

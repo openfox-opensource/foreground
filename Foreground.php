@@ -61,4 +61,7 @@ $wgResourceModules['skins.foreground'] = [
 	'localBasePath'  => &$GLOBALS['wgStyleDirectory']
 ];
 
-wfLoadSkin( 'Foreground', "$wgStyleDirectory/sheatufim/skin.json" );
+//wfLoadSkin( 'Foreground', "$wgStyleDirectory/sheatufim/skin.json" );
+if( isset( $_GET['ttt']) ){
+	die(print_r($wgResourceModules));
+}
