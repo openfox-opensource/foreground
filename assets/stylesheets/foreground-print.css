@@ -1,3 +1,5 @@
 @media print {
-  nav, footer { display:none; }
+	nav,
+	footer {
+		display: none; }
 }
