@@ -43,7 +43,6 @@ class SkinForeground extends SkinTemplate {
 				break;
 		}
 		$out->addModuleStyles( 'skins.foreground.styles' );
-
 	}
 
 	public function initPage( OutputPage $out ) {
@@ -80,7 +79,6 @@ class ForegroundTemplate extends BaseTemplate {
 				break;
 		}
 
-
 		$displaytitle = $this->data['title'];
 		$namespace = str_replace( '_', ' ', $this->getSkin()->getTitle()->getNsText() );
 		if ( !empty( $namespace ) ) {
@@ -114,9 +112,9 @@ class ForegroundTemplate extends BaseTemplate {
 				echo "<div id='navwrapper' class='" . $wgForegroundFeatures['NavWrapperType'] . "'>";
 				break;
 		}
-?>
-	<?php //dont print new nav 
-		if(false){ ?>
+	?>
+	<?php //dont print new nav
+		if ( false ) { ?>
 		<nav class="top-bar" data-topbar role="navigation" data-options="back_text: <?php echo wfMessage( 'foreground-menunavback' )->text(); ?>">
 			<ul class="title-area">
 				<li class="name">
@@ -149,8 +147,8 @@ class ForegroundTemplate extends BaseTemplate {
 						<?php } ?>
 					</li>
 				<?php } ?>
-	   <?php 
-		} 
+	   <?php
+		  }
 	   ?>
 			</ul>
 
@@ -189,11 +187,14 @@ class ForegroundTemplate extends BaseTemplate {
 		</section>
 		</nav>
 		
-		<?php if ( $wgForegroundFeatures['NavWrapperType'] != '0' ) echo "</div>"; ?>
+		<?php if ( $wgForegroundFeatures['NavWrapperType'] != '0' ) {
+			echo "</div>";
+		}
+		?>
 
-	<?php 
-		//end of no nav 
-		} 
+	<?php
+		//end of no nav
+		}
 	?>
 	<!-- START SheatufimTemplate -->
 	<header class="header">
@@ -250,7 +251,6 @@ class ForegroundTemplate extends BaseTemplate {
 		</div>        
 	</header>
 
-	<?php if ( $wgForegroundFeatures['NavWrapperType'] != '0' ) echo "</div>"; ?>
 
 	<div id="page-content">
 		<div class="site">
@@ -342,7 +342,7 @@ class ForegroundTemplate extends BaseTemplate {
 			<div class="bottom">
 				<div class="credits">
 					<a href="https://openfox.co.il/">נבנה על ידי OpenFox</a>
-=======
+<?php if ( false ) { ?>
 		
 <!-- START FOREGROUNDTEMPLATE -->
 
@@ -448,7 +448,7 @@ class ForegroundTemplate extends BaseTemplate {
 						<?php } ?>
 					</ul>
 					</div>								
->>>>>>> develop
+<?php } ?>
 				</div>
 				<span class="stf-credit">כל הזכויות שמורות לשיתופים - אסטרטגיות להשפעה חברתית</span>
 			</div>
@@ -464,8 +464,7 @@ class ForegroundTemplate extends BaseTemplate {
 	</html>
 
 	<?php
-		wfRestoreWarnings();
-
+		Wikimedia\wfRestoreWarnings();
 	}
 }
 
