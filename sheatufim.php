@@ -30,6 +30,7 @@ $wgResourceModules['skins.sheatufim'] = array(
         'sheatufim/assets/scripts/foundation/foundation.dropdown.js',
         'sheatufim/assets/scripts/foundation/foundation.section.js',
         'sheatufim/assets/scripts/foundation/foundation.clearing.js',
+        'sheatufim/assets/scripts/foundation/foundation.tooltips.js',
         'sheatufim/assets/scripts/foundation/foundation.cookie.js',
         'sheatufim/assets/scripts/foundation/foundation.placeholder.js',
         'sheatufim/assets/scripts/foundation/foundation.forms.js',

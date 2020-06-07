@@ -78,8 +78,11 @@ html,body{
 p {
     margin:0;
 }
-* a {
-    color:inherit;
+a {
+    color: #58b8da;
+}
+a {
+    color: inherit;
 }
 
 textarea:focus, input:focus{

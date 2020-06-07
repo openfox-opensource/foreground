@@ -196,15 +196,6 @@ class sheatufimTemplate extends BaseTemplate {
         </div>
     </div>
     <footer id="sh-footer">
-        <?php if ($wgForegroundFeatures['addThisFollowPUBID'] != '') { ?>
-        <div class="social-footer large-12 small-12 columns">
-            <div class="social-links">
-                <!-- Go to www.addthis.com/dashboard to customize your tools -->
-                <div class="addthis_horizontal_follow_toolbox"></div>
-                <script type="text/javascript" src="//s7.addthis.com/js/300/addthis_widget.js#pubid=<?php echo $wgForegroundFeatures['addThisFollowPUBID'];?>"></script>
-            </div>
-        </div>
-        <?php } ?>
         <div class="site">
             <div class="sh-social-links">
                 <a target="_blank" href="https://www.facebook.com/sheatufim/" class="icon-svg_icons_facebook"></a>
@@ -230,14 +221,16 @@ class sheatufimTemplate extends BaseTemplate {
             <div class="contact-info"><span>כתובת: ת.ד. 3225 בית יהושע 40591</span><span>טלפון: 09-8301400</span><span>פקס: 09-8990889</span></div>
             <div class="bottom">
                 <div class="credits">
-                    <a href="http://www.kwiki.co.il/">נבנה על ידי Kwiki - פשוט לנהל את הידע</a>
+                    <a href="https://openfox.co.il/">נבנה על ידי OpenFox</a>
                 </div>
                 <span class="stf-credit">כל הזכויות שמורות לשיתופים - אסטרטגיות להשפעה חברתית</span>
             </div>
         </div>
     </footer>
     <?php $this->printTrail(); ?>
-
+    <?php if ($wgForegroundFeatures['addThisFollowPUBID'] != '') { ?>
+	    <script type="text/javascript" src="//s7.addthis.com/js/300/addthis_widget.js#pubid=<?php echo $wgForegroundFeatures['addThisFollowPUBID'];?>"></script>
+    <?php } ?>
     </body>
 
     </html>
