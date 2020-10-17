@@ -1,0 +1,34 @@
+
+/** 
+ *	This rule is must to make the css works. 
+ *	Don't ask me why
+ **/
+body{}
+
+.top-bar .title-name {
+	font-size: 1.2em;
+	line-height: 1.8em;
+}
+
+/* VE corrections */
+
+.oo-ui-barToolGroup.oo-ui-widget-enabled>.oo-ui-toolGroup-tools>.oo-ui-tool>.oo-ui-tool-link, .oo-ui-barToolGroup>.oo-ui-toolGroup-tools>.oo-ui-tool.oo-ui-widget-disabled>.oo-ui-tool-link {
+	display: block !important;
+}
+
+/* UI Corrections */
+body .oo-ui-iconElement .oo-ui-iconElement-icon, body .oo-ui-iconElement.oo-ui-iconElement-icon {
+	height: 100%;
+}
+
+.oo-ui-checkboxInputWidget [type='checkbox'] {
+	display: block;
+}
+
+.oo-ui-checkboxInputWidget [type='checkbox'] + span {
+	top: 0;
+}
+
+.modal-header {
+	direction:ltr;
+}

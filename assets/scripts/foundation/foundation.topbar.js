@@ -245,10 +245,17 @@
 
       S(window).off('.topbar').on('resize.fndtn.topbar', self.throttle(function () {
           self.resize.call(self);
-      }, 50)).trigger('resize.fndtn.topbar').load(function () {
-          // Ensure that the offset is calculated after all of the pages resources have loaded
-          S(this).trigger('resize.fndtn.topbar');
-      });
+      }, 50));
+
+      if( $.isReady  ){
+          S(window).trigger('resize.fndtn.topbar');
+      } 
+      else{
+            // Ensure that the offset is calculated after all of the pages resources have loaded
+         S(window).load(function () {
+          S(window).trigger('resize.fndtn.topbar');
+        });
+      }
 
       S('body').off('.topbar').on('click.fndtn.topbar', function (e) {
         var parent = S(e.target).closest('li').closest('li.hover');
@@ -423,6 +430,7 @@
       this.S(window).on('scroll', function () {
         self.update_sticky_positioning();
       });
+      self.update_sticky_positioning();
     },
 
     update_sticky_positioning : function () {

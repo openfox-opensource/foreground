@@ -1,23 +1,20 @@
-	jQuery(window).load(function() {
-jQuery("ol.special").owlCarousel({
+jQuery.migrateTrace = true;
+jQuery(document).ready(function() {
+  jQuery("ol.special").owlCarousel({
       items : 5, //10 items above 1000px browser width
       itemsDesktop : [1000,5], //5 items between 1000px and 901px
       itemsDesktopSmall : [900,3], // betweem 900px and 601px
       itemsTablet: [600,2], //2 items between 600 and 0
       itemsMobile : [200,1] // itemsMobile disabled - inherit from itemsTablet option
   });
- }); 
-	jQuery(window).load(function() {
-  
+    
   // Add the 'less than IE9' class to appropriate version of IE by checking for their support of cssFloat (true in v9)
   if (!jQuery.support.cssFloat) { jQuery('html').addClass('lt-ie9').addClass('no-js'); }
   
- //  jQuery('#load-jobiz').load('/outsource/jobiz.html .searchResults.timeLine'); //jobiz manhigut
+  //  jQuery('#load-jobiz').load('/outsource/jobiz.html .searchResults.timeLine'); //jobiz manhigut
 
-
-
+  // Log errors
   jQuery(document).foundation(function (response) {
-    // console.log(response.errors); < this line will produce error in ie9!
     if (window.console) console.log(response.errors);
   });
   
@@ -26,14 +23,14 @@ jQuery("ol.special").owlCarousel({
   jQuery("#pt-notifications").prependTo("#echo-notifications-alerts");
   jQuery("#pt-notifications-message").prependTo("#echo-notifications-messages");
   jQuery("#pt-notifications-alert").prependTo("#echo-notifications-alerts");
+  jQuery("#pt-notifications-notice").prependTo("#echo-notifications-notice");
   
   // Append font-awesome icons
   jQuery('[id^=ca-nstab] a').prepend('<div class="drop-icon"><i class="fa fa-file fa-fw"></i></div>')
   jQuery('li#ca-talk a').prepend('<div class="drop-icon"><i class="fa fa-comments-o fa-fw"></i></div>')
   jQuery('li#ca-edit a').prepend('<div class="drop-icon"><i class="fa fa-pencil-square-o fa-fw"></i></div>')
-  jQuery('li#ca-ve-edit a').prepend('<div class="drop-icon"><i class="fa fa-pencil fa-fw"></i></div>')
-  jQuery('li#ca-viewsource a').prepend('<div class="drop-icon"><i class="fa fa-book fa-fw"></i></div>')
   jQuery('li#ca-form_edit a').prepend('<div class="drop-icon"><i class="fa fa-pencil-square fa-fw"></i></div>')
+  jQuery('li#ca-formedit a').prepend('<div class="drop-icon"><i class="fa fa-pencil-square fa-fw"></i></div>')
   jQuery('li#ca-history a').prepend('<div class="drop-icon"><i class="fa fa-history fa-fw"></i></div>')
   jQuery('li#ca-delete a').prepend('<div class="drop-icon"><i class="fa fa-trash-o fa-fw"></i></div>')
   jQuery('li#ca-move a').prepend('<div class="drop-icon"><i class="fa fa-truck fa-fw"></i></div>')
@@ -46,9 +43,9 @@ jQuery("ol.special").owlCarousel({
   jQuery('li#ca-ask_delete_permanently a').prepend('<div class="drop-icon"><i class="fa fa-cut fa-fw"></i></div>')
   jQuery('li#t-cite a').prepend('<div class="drop-icon"><i class="fa fa-graduation-cap fa-fw"></i></div>')
 
-if ( jQuery( '#ca-addsection' ).length ) {
-  jQuery('li#ca-addsection a').html('<div class="drop-icon"><i class="fa fa-plus fa-fw"></i></div>' + jQuery('li#ca-addsection a').attr('title').replace(/\[.+/g,""))
-}
+  if ( jQuery( '#ca-addsection' ).length ) {
+    jQuery('li#ca-addsection a').html('<div class="drop-icon"><i class="fa fa-plus fa-fw"></i></div>' + jQuery('li#ca-addsection a').attr('title').replace(/\[.+/g,""))
+  }
 
   jQuery('li#pt-uls a').prepend('<div class="drop-icon"><i class="fa fa-language fa-fw"></i></div>')
   jQuery('li#pt-userpage a').prepend('<div class="drop-icon"><i class="fa fa-user fa-fw"></i></div>')
@@ -85,6 +82,7 @@ if ( jQuery( '#ca-addsection' ).length ) {
   // Turn categories into labels
   jQuery('#mw-normal-catlinks ul li a').addClass('label');
 
+
   // Make the Page Action button respond to hover
   //jQuery('button.button').mouseenter(function(){
   //  jQuery('ul#drop1').addClass('open').addClass('right').css('top', '32px').css('left', '785px');
@@ -104,12 +102,19 @@ if ( jQuery( '#ca-addsection' ).length ) {
            return text === "הצג פחות" ? "הצג עוד" : "הצג פחות";
 			})
     });
+  });
+
+  // קיצור כותרת במרחב שם מטא
+  if ($('#firstHeading:contains("המתווכת:")').length) {
+    $('#firstHeading').html($('#firstHeading').html().replace('המתווכת:', ''));
+  }
+
+
+
+  // Have to wait until the window is fully loaded because of Visual Editor to prepend icons for editing
+  jQuery(window).load(function() {
+    jQuery('li#ca-ve-edit a').prepend('<div class="drop-icon"><i class="fa fa-pencil fa-fw"></i></div>')
+    jQuery('li#ca-viewsource a').prepend('<div class="drop-icon"><i class="fa fa-book fa-fw"></i></div>')
+  });
+
 });
-
-// קיצור כותרת במרחב שם מטא
-if ($('#firstHeading:contains("המתווכת:")').length) {
-  $('#firstHeading').html($('#firstHeading').html().replace('המתווכת:', ''));
-}
-
-});
-

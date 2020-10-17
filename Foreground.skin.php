@@ -19,11 +19,14 @@ class Skinforeground extends SkinTemplate {
 			'NavWrapperType' => 'divonly',
 			'showHelpUnderTools' => true,
 			'showRecentChangesUnderTools' => true,
+			'enableTabs' => false,
 			'wikiName' => &$GLOBALS['wgSitename'],
 			'navbarIcon' => false,
 			'IeEdgeCode' => 1,
-			'showFooterIcons' => 0,
-			'addThisFollowPUBID' => ''
+			'showFooterIcons' => false,
+			'addThisPUBID' => '',
+			'useAddThisShare' => '',
+			'useAddThisFollow' => ''
 		);
 		foreach ($wgForegroundFeaturesDefaults as $fgOption => $fgOptionValue) {
 			if ( !isset($wgForegroundFeatures[$fgOption]) ) {
@@ -57,8 +60,22 @@ class foregroundTemplate extends BaseTemplate {
 	public function execute() {
 		global $wgUser;
 		global $wgForegroundFeatures;
-		//wfSuppressWarnings();
+		Wikimedia\suppressWarnings();
 		$this->html('headelement');
+		switch ($wgForegroundFeatures['enableTabs']) {
+			case true:
+			    ob_start();
+				$this->html('bodytext');
+				$out = ob_get_contents();
+				ob_end_clean();
+				$markers = array("&lt;a", "&lt;/a", "&gt;");
+				$tags = array("<a", "</a", ">");
+				$body = str_replace($markers, $tags, $out);
+				break;	
+			default:
+				$body = '';
+				break;
+		}
 		switch ($wgForegroundFeatures['NavWrapperType']) {
 			case '0':
 				break;
@@ -70,7 +87,7 @@ class foregroundTemplate extends BaseTemplate {
 				break;
 		}
 		// Set default variables for footer and switch them if 'showFooterIcons' => true
-		$footerLeftClass = 'small-8 large-centered columns text-center';
+		$footerLeftClass = 'small-12 large-centered columns text-center';
 		$footerRightClass = 'large-12 small-12 columns';
 		$poweredbyType = "nocopyright";
 		$poweredbyMakeType = 'withoutImage';
@@ -86,6 +103,7 @@ class foregroundTemplate extends BaseTemplate {
 		}
 ?>
 
+
 <div id="over-top">
 	<div class="logo-wrapper">
 		<!--a href="/"><img id="top-logo" src="/w/upload/haogdan/thumb/c/c9/Logo.png/320px-Logo.png"/></a-->
@@ -99,24 +117,25 @@ class foregroundTemplate extends BaseTemplate {
 			<ul>
 				<li class="over-contact website"><a href="http://migzar3.org.il" target="_blank" title="אתר מנהיגות אזרחית"><img id="top-logo" src="/w/upload/haogdan/thumb/c/c9/Logo.png/320px-Logo.png"/></a></li>
 				<li class="over-contact"><a href="mailto:office@migzar3.org.il"  title="ליצירת קשר"><i class="fa fa-envelope"></i></a></li>
-				<li class="over-contact"><a href="https://www.facebook.com/manhigut.ez/" target="_blank" title="מנהיגות אזרחית בפייסבוק"><i class="fa fa-facebook"></i></a>
+				<li class="over-contact"><a href="https://www.facebook.com/manhigut.ez/" target="_blank" title="מנהיגות אזרחית בפייסבוק"><i class="fab fa-facebook-f"></i></a>
 			</ul>
 		</div>
 	</div>
 </div>
 <div class="sticky">
  <!-- START FOREGROUNDTEMPLATE -->
-		<nav class="top-bar" data-topbar role="navigation" data-topbar role="navigation" data-options="sticky_on: large">
+		<nav class="top-bar" data-topbar role="navigation" data-topbar role="navigation" data-options="back_text: <?php echo wfMessage( 'foreground-menunavback' )->text(); ?>">
+
 			<ul class="title-area">
 				<li class="name">
-					<h1 class="title-name">
+					<div class="title-name">
 					<a href="<?php echo $this->data['nav_urls']['mainpage']['href']; ?>">
 					<?php /* if ($wgForegroundFeatures['navbarIcon'] != '0') { ?>
 						<img alt="<?php echo $this->text('sitename'); ?>" class="top-bar-logo" src="<?php echo $this->text('logopath') ?>">
 					<?php } */ ?>					
 					<div class="title-name" style="display: inline-block;"><?php echo $wgForegroundFeatures['wikiName']; ?></div>
 					</a>
-					</h1>
+					</div>
 				</li>
 				<li class="toggle-topbar menu-icon">
 					<a href="#"><span><?php echo wfMessage( 'foreground-menutitle' )->text(); ?></span></a>
@@ -127,15 +146,16 @@ class foregroundTemplate extends BaseTemplate {
 
 			<ul id="top-bar-left" class="left">
 				<li class="divider show-for-small"></li>
-					<?php foreach ( $this->getSidebar() as $boxName => $box ) { if ( ($box['header'] != wfMessage( 'toolbox' )->text())  ) { ?>
-				<li class="has-dropdown active"  id='<?php echo Sanitizer::escapeId( $box['id'] ) ?>'<?php echo Linker::tooltip( $box['id'] ) ?>>
-					<a href="#"><?php echo htmlspecialchars( $box['header'] ); ?></a>
+				<?php foreach ( $this->getSidebar() as $boxName => $box ) { if ( ($box['header'] != wfMessage( 'toolbox' )->text())  ) { ?>
+					<li class="has-dropdown active"  id='<?php echo Sanitizer::escapeId( $box['id'] ) ?>'<?php echo Linker::tooltip( $box['id'] ) ?>>
+						<a href="#"><?php echo htmlspecialchars( $box['header'] ); ?></a>
 						<?php if ( is_array( $box['content'] ) ) { ?>
 							<ul class="dropdown">
 								<?php foreach ( $box['content'] as $key => $item ) { echo $this->makeListItem( $key, $item ); } ?>
 							</ul>
-								<?php } } ?>
 						<?php } ?>
+					</li>
+				<?php } } ?>
 			</ul>
 
 			<ul id="top-bar-right" class="right">
@@ -174,6 +194,16 @@ class foregroundTemplate extends BaseTemplate {
 		<div id="page-content">
 		<div class="row">
 				<div class="large-12 columns">
+					<!-- Output page indicators -->
+					<?php echo $this->getIndicators(); ?>
+					<!-- If user is logged in output echo location -->
+					<?php if ($wgUser->isLoggedIn()): ?>
+					<div id="echo-notifications">
+					<div id="echo-notifications-alerts"></div>
+					<div id="echo-notifications-messages"></div>
+					<div id="echo-notifications-notice"></div>
+					</div>
+					<?php endif; ?>
 				<!--[if lt IE 9]>
 				<div id="siteNotice" class="sitenotice panel radius"><?php echo $this->text('sitename') . ' '. wfMessage( 'foreground-browsermsg' )->text(); ?></div>
 				<![endif]-->
@@ -192,15 +222,9 @@ class foregroundTemplate extends BaseTemplate {
 						<!--RTL -->
 						<ul id="actions" class="f-dropdown" data-dropdown-content>
 							<?php foreach( $this->data['content_actions'] as $key => $item ) { echo preg_replace(array('/\sprimary="1"/','/\scontext="[a-z]+"/','/\srel="archives"/'),'',$this->makeListItem($key, $item)); } ?>
-							<?php wfRunHooks( 'SkinTemplateToolboxEnd', array( &$this, true ) );  ?>
+							<?php Hooks::run( 'SkinTemplateToolboxEnd', array( &$this, true ) );  ?>
 						</ul>
 						<!--RTL -->
-						<?php if ($wgUser->isLoggedIn()): ?>
-							<div id="echo-notifications">
-							<div id="echo-notifications-alerts"></div>
-							<div id="echo-notifications-messages"></div>
-							</div>
-						<?php endif; ?>
 					<?php endif;
 					$namespace = str_replace('_', ' ', $this->getSkin()->getTitle()->getNsText());
 					$displaytitle = $this->data['title'];
@@ -210,11 +234,27 @@ class foregroundTemplate extends BaseTemplate {
 						$displaytitle = str_replace($pagetitle, $newtitle, $displaytitle);
 					?><h4 class="namespace label"><?php print $namespace; ?></h4><?php } ?>
 					<div id="content">
+
 					<h2  id="firstHeading" class="title sticky" data-sticky data-options="marginTop:40px;"><?php print $displaytitle; ?></h2>
+						<?php if ($wgForegroundFeatures['useAddThisShare'] !== '') { ?>
+						<!-- Go to www.addthis.com/dashboard to customize your tools -->
+						<div class="<?php echo $wgForegroundFeatures['useAddThisShare']; ?> hide-for-print"></div>
+						<!-- Go to www.addthis.com/dashboard to customize your tools -->
+						<?php } ?>
+
 					<?php if ( $this->data['isarticle'] ) { ?><h3 id="tagline"><?php $this->msg( 'tagline' ) ?></h3><?php } ?>
 					<div id="contentSub" class="clear_both"></div>
 					<div id="bodyContent" class="mw-bodytext">
-						<?php $this->html('bodytext') ?>
+						<?php 
+							switch ($wgForegroundFeatures['enableTabs']) {
+								case true:
+									echo $body;
+									break;
+								default:
+								$this->html('bodytext');
+									break;
+							}
+						?>
 						<div class="clear_both"></div>
 					</div>
 		    	<div class="group"><?php $this->html('catlinks'); ?></div>
@@ -222,6 +262,7 @@ class foregroundTemplate extends BaseTemplate {
 				</div>
 		    </div>
 		</div>
+
 
 		<footer class="footer">
 		
@@ -248,6 +289,27 @@ class foregroundTemplate extends BaseTemplate {
 								<?php foreach ( $this->getFooterLinks( "flat" ) as $key ) { ?>
 									<li id="footer-<?php echo $key ?>"><?php $this->html( $key ) ?></li>
 								<?php } ?>
+<!--
+			<footer class="row">
+				<div id="footer">
+					<?php if ($wgForegroundFeatures['useAddThisFollow'] !== '') { ?>
+						<div class="social-follow hide-for-print">
+							"<?php echo $wgForegroundFeatures['useAddThisFollow']; ?> hide-for-print"></div>
+						</div>
+					<?php } ?>
+					<div id="footer-left" class="<?php echo $footerLeftClass;?>">
+					<ul id="footer-left">
+						<?php foreach ( $this->getFooterLinks( "flat" ) as $key ) { ?>
+							<li id="footer-<?php echo $key ?>"><?php $this->html( $key ) ?></li>
+						<?php } ?>									
+					</ul>
+					</div>	
+					<div id="footer-right-icons" class="<?php echo $footerRightClass;?>">
+					<ul id="poweredby">
+						<?php foreach ( $this->getFooterIcons( $poweredbyType ) as $blockName => $footerIcons ) { ?>
+							<li class="<?php echo $blockName ?>"><?php foreach ( $footerIcons as $icon ) { ?>
+								<?php echo $this->getSkin()->makeFooterIcon( $icon, $poweredbyMakeType ); ?>
+								<?php } ?>-->
 						</ul>
 				</div>
 				
@@ -277,7 +339,7 @@ class foregroundTemplate extends BaseTemplate {
 						<li class="manhigut-contact" target="_blank"><a href="//www.migzar3.org.il">www.migzar3.org.il</a>
 						<li class="manhigut-contact"><a href="tel:+972722785421">072-278-5421</a></li>
 						<li class="manhigut-contact"><a href="mailto: office@migzar3.org.il">office@migzar3.org.il</a></li>
-						<li class="fb"><a href="https://www.facebook.com/manhigut.ez/" target="_blank" title="מנהיגות אזרחית בפייסבוק"><i class="fa fa-facebook-square"></i></a></li>
+						<li class="fb"><a href="https://www.facebook.com/manhigut.ez/" target="_blank" title="מנהיגות אזרחית בפייסבוק"><i class="fab fa-facebook-square"></i></a></li>
 						<?php /*<li class="newsletter"><h3>הרשמה לניוזלטר</h3></li>
 						<li><iframe src="//migzar3.org.il/רק-הרשמה/" scrolling="no" frameborder="0" style="border:none;overflow:hidden;height: 69px; max-width: 81
 						vw;" allowtransparency="true"></iframe></li> */?>
@@ -288,8 +350,8 @@ class foregroundTemplate extends BaseTemplate {
 			</div> <!-- END footer -->
 			<div class="built-by">
 				<ul>
-						<li >התכנים נכתבו על ידי <a href="http://www.ngocenter.org.il/" target="_blank">אלינור סידי</a> | </li>
-						<li>האתר נבנה על ידי <a href="https://openfox.co.il" target="_blank">OpenFox</a> |</li>
+						<li >התכנים נכתבו על ידי אלינור סידי | </li>
+						<li>האתר נבנה על ידי <a href="https://openfox.io" target="_blank">OpenFox</a> |</li>
 						<li>Powered by <a href="https://mediawiki.org/" <?php //openfox.co.il/מדיה-ויקי ?> target="_blank" title="אתר מבוסס מדיה-ויקי">Mediawiki</a></li>
 				</ul>
 			</div>
@@ -298,14 +360,15 @@ class foregroundTemplate extends BaseTemplate {
 		</div>
 		
 		<?php $this->printTrail(); ?>
-                       <?php if ($wgForegroundFeatures['addThisFollowPUBID'] != '') { ?>
-                       <script type="text/javascript" src="//s7.addthis.com/js/300/addthis_widget.js#pubid=<?php echo $wgForegroundFeatures['addThisFollowPUBID'];?>"></script>
- 	               <?php } ?>
+			<?php if ($this->data['isarticle'] && $wgForegroundFeatures['addThisPUBID'] !== '') { ?>
+				<script type="text/javascript" src="//s7.addthis.com/js/300/addthis_widget.js#pubid=<?php echo $wgForegroundFeatures['addThisPUBID']; ?>" async="async">></script>
+			<?php } ?>	
 		</body>
 		</html>
 
 <?php
-		//wfRestoreWarnings();
+	Wikimedia\suppressWarnings();
 	}
+}
 }
 ?>
