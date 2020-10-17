@@ -9,7 +9,7 @@
     
     $( function () {  
         // to fix margin of the main-img.
-        $("#main-img-block").prependTo("#main-img-area");
+        //$("#main-img-block").prependTo("#main-img-area");
         
         /*
         if ($('.portal').length > 0) { 

@@ -14,7 +14,7 @@ class SkinForeground extends SkinTemplate {
 		parent::setupSkinUserCss( $out );
 		global $wgForegroundFeatures;
 		$wgForegroundFeaturesDefaults = [
-			'showActionsForAnon' => true,
+			'showActionsForAnon' => false,
 			'NavWrapperType' => 'divonly',
 			'showHelpUnderTools' => true,
 			'showRecentChangesUnderTools' => true,
@@ -22,7 +22,6 @@ class SkinForeground extends SkinTemplate {
 			'wikiName' => &$GLOBALS['wgSitename'],
 			'navbarIcon' => false,
 			'IeEdgeCode' => 1,
-
 			'showFooterIcons' => false,
 			'addThisPUBID' => '',
 			'useAddThisShare' => '',
@@ -54,7 +53,19 @@ class SkinForeground extends SkinTemplate {
 		$out->addMeta( 'viewport', $viewport_meta );
 		$out->addModules( 'skins.foreground.js' );
 	}
-
+	/**
+     * Adds classes to the body element.
+     *
+     * @param $out OutputPage object
+     * @param &$bodyAttrs Array of attributes that will be set on the body element
+     */
+    function addToBodyAttributes($out, &$bodyAttrs)
+    {
+    	if(!$out->getTitle()->isSpecialPage()){    
+            $wikiPage = $out->getWikiPage();
+            $bodyAttrs['class'] .= ' page-id-' . $wikiPage->getId();
+        }
+    }
 }
 
 class ForegroundTemplate extends BaseTemplate {
@@ -230,6 +241,7 @@ class ForegroundTemplate extends BaseTemplate {
 							<li><a href="/ארגז_כלים:שולחן העבודה למנהל החברתי"><span class="smtlp">ארגזי כלים<span class="hide icon icon-svg_icons_arrow"></span></a></span>
 								<div class="smtlp-arrow"></div>
 								<div class="smtlp-rap">
+									<a href="/ארגז_כלים:ארגז_כלים_לעיצוב_אקוסיסטם_רשותי">ארגז כלים לעיצוב אקוסיסטם רשותי<span class="hide icon-svg_icons_arrow"></span></a>
 									<a href="/ארגז_כלים:שולחן העבודה למנהל החברתי">שולחן העבודה למנכ"ל החברתי<span class="hide icon-svg_icons_arrow"></span></a>
 									<a href="/%D7%90%D7%A8%D7%92%D7%96_%D7%9B%D7%9C%D7%99%D7%9D:%D7%94%D7%A1%D7%A4%D7%A8%D7%99%D7%99%D7%94_-_%D7%9E%D7%93%D7%A8%D7%99%D7%9B%D7%99%D7%9D_%D7%9C%D7%9E%D7%A0%D7%9B%22%D7%9C_%D7%94%D7%97%D7%91%D7%A8%D7%AA%D7%99"> הספרייה – מדריכים למנכ"ל החברתי<span class="hide icon-svg_icons_arrow"></span></a>
 									<a href="/ארגז_כלים:ארגז הכלים לניהול פיננסי"> ארגז הכלים לניהול פיננסי<span class="hide icon-svg_icons_arrow"></span></a>
@@ -296,6 +308,11 @@ class ForegroundTemplate extends BaseTemplate {
 		<div id="mw-js-message" style="display:none;"></div>
 		
 		<div id="main-img-area">
+			<?php if ( class_exists('FennecHtmlBeforeTitleHooks', false)  ){
+				echo FennecHtmlBeforeTitleHooks::getHtmlBeforeTitle( $this->getSkin()->getTitle() );
+			}
+
+			?>
 			<div class="site">
 				<div id="p-cactions">
 					<div id="content">
@@ -333,7 +350,7 @@ class ForegroundTemplate extends BaseTemplate {
 							<span class="show-for-medium-up">&nbsp;התחבר</span>
 						</i>
 					</a>
-				<<?php endif; ?>
+				<?php endif; ?>
 			</nav>
 			<a class="logo" href="http://www.sheatufim.org.il/">
 				<img title="שיתופים - אסטרטגיות להשפעה חברתית" src="/w/upload/sheatufim/logo-footer.png">

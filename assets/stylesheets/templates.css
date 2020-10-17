@@ -1,9 +1,12 @@
+.large-4 .box label {
+	color:#fff;
+}
 .cat-מושגים div.large-4.small-12.columns div.box,
 .cat-מושגים .mimg-back {
 	background: #2066af;
 	color: white;
 }
-
+div.large-4.small-12.columns div.box,
 .cat-מאמרים div.large-4.small-12.columns div.box,
 .cat-מאמרים .mimg-back {
 	background: #b92f88;
@@ -56,37 +59,30 @@ div.large-4.small-12.columns.blue div.box {
 	color: white;
 }
 
-.cat-מאמרים div.large-8.small-12.columns div.box span.mw-headline {
+.cat-מאמרים .box .mw-headline {
 	border-color: #b92f88;
 }
 
-.cat-ארגונים div.large-8.small-12.columns div.box span.mw-headline {
+.cat-ארגונים .box .mw-headline {
 	border-color: #722b90;
 }
 
-.cat-כלים div.large-8.small-12.columns div.box span.mw-headline {
+.cat-כלים .box .mw-headline {
 	border-color: #7cba46;
 }
-
-.cat-קרנות div.large-8.small-12.columns div.box span.mw-headline {
+.cat-קרנות .box .mw-headline {
 	border-color: #58b8da;
 }
 
-.cat-מצגות div.large-8.small-12.columns div.box span.mw-headline {
+.cat-מצגות .box .mw-headline {
 	border-color: #f0532b;
 }
 
-.cat-מושגים div.large-8.small-12.columns div.box span.mw-headline {
+.cat-מושגים .box .mw-headline {
 	border-color: #2066af;
 }
 
-.orange div.large-8.small-12.columns div.box span.mw-headline {
-	border-color: #f0862f;
-}
 
-.blue div.large-8.small-12.columns div.box span.mw-headline {
-	border-color: #6294c7;
-}
 
 /* This is used in the search field autocompletion */
 
@@ -211,7 +207,7 @@ input[ type=checkbox ]:checked + label:before {
 }
 
 @media only screen and ( max-width: 40em ) {
-	#searchBoxHeader {
+	#searchBoxHeader, .imgrap  {
 		display: none !important;
 	}
 }
@@ -299,9 +295,7 @@ input.searchboxInput.mw-ui-input.mw-ui-input-inline {
 	padding-bottom: 0.9375em;
 }
 
-.sidebar span.mw-headline {
-	border-bottom-color: #2f6dbd;
-}
+
 
 .tile > div {
 	height: 8rem; }
@@ -381,10 +375,10 @@ input.searchboxInput.mw-ui-input.mw-ui-input-inline {
 	padding: 10px;
 	text-align: justify;
 	line-height: 1.3;
-	transition: all 0.5s ease;
-	-moz-transition: all 0.5s ease;
-	-webkit-transition: all 0.5s ease;
-	-ms-transition: all 0.5s ease;
+	transition: all 0.3s ease;
+	-moz-transition: all 0.3s ease;
+	-webkit-transition: all 0.3s ease;
+	-ms-transition: all 0.3ss ease;
 	box-shadow: rgba( 0, 0, 0, 0.36 ) 2px 2px 7px -2px;
 }
 /* @noflip */
@@ -404,7 +398,6 @@ input.searchboxInput.mw-ui-input.mw-ui-input-inline {
 	visibility: visible;
 	opacity: 1;
 	right: 100%;
-	top: 3rem;
 	margin-top: 2.5rem;
 	margin-left: -80px;
 	z-index: 999;
@@ -600,19 +593,8 @@ input[ type='submit' ]:hover {
 	border: 1px soild;
 }
 
-.box span.mw-headline {
-	font-size: 20.5px;
-	font-family: 'Poeti-Bold', 'Roboto-Bold', 'Montserrat-Light', 'Open Sans';
-	font-weight: normal;
-	border-bottom-width: 3px;
-	border-bottom-style: solid;
-	width: 100%;
-	display: inline;
-	color: rgb( 71, 71, 71 );
-}
 
 .box {
-	font-family: 'Poeti-Bold', 'Roboto-Bold', 'Montserrat-Light', 'Open Sans';
 	background: #f4f4f4;
 	padding: 2em;
 	margin: 1em 0;
@@ -906,6 +888,12 @@ embed {
 	width: 100%;
 	height: 97.5vh;
 }
+
+/* disable popups in toolbox pages */
+.cat-ארגז_כלים .mwe-popups {
+    display: none !important;
+}
+
 
 @media only screen and ( max-width: 40em ) {
 	/* @noflip */
