@@ -33,7 +33,6 @@
 			"position": "top",
 			"styles": [
 				"assets/stylesheets/normalize.css",
-				"assets/fonts/fontawesome-5/css/all.css",
 				"assets/stylesheets/font-awesome.css",
 				"assets/stylesheets/foundation.css",
 				"assets/stylesheets/foreground.css",

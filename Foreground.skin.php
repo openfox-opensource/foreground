@@ -42,6 +42,7 @@ class SkinForeground extends SkinTemplate {
 				break;
 		}
 		$out->addModuleStyles( 'skins.foreground.styles' );
+		
 	}
 
 	public function initPage( OutputPage $out ) {
