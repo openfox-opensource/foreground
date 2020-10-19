@@ -32,7 +32,6 @@
 			"styles": [
 				"assets/stylesheets/normalize.css",
 				"assets/stylesheets/font-awesome.css",
-				"assets/fonts/fontawesome-5/css/all.css",
 				"assets/stylesheets/foundation.css",
 				"assets/stylesheets/foreground.css",
 				"assets/stylesheets/foreground-print.css",
