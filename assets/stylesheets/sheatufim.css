@@ -1,12 +1,16 @@
 @font-face {
 	font-family: 'Roboto';
+	font-weight: 400;
+	font-style: normal;
 	src: url( '../fonts/roboto/Roboto-Light-webfont.eot' );
 	src: url( '../fonts/roboto/Roboto-Light-webfont.eot?#iefix' )
 		format( 'embedded-opentype' ),url( '../fonts/roboto/Roboto-Light-webfont.woff' ) format( 'woff' ),url( '../fonts/roboto/Roboto-Light-webfont.ttf' ) format( 'truetype' ),url( '../fonts/roboto/Roboto-Light-webfont.svg#webfont' ) format( 'svg' );
 }
 
 @font-face {
-	font-family: 'Roboto-Bold';
+        font-weight: 700;
+        font-style: normal;
+	font-family: 'Roboto';
 	src: url( '../fonts/roboto/Roboto-Medium-webfont.eot' );
 	src: url( '../fonts/roboto/Roboto-Medium-webfont.eot?#iefix' )
 		format( 'embedded-opentype' ),url( '../fonts/roboto/Roboto-Medium-webfont.woff' ) format( 'woff' ),url( '../fonts/roboto/Roboto-Medium-webfont.ttf' ) format( 'truetype' ),url( '../fonts/roboto/Roboto-Medium-webfont.svg#webfont' ) format( 'svg' );
@@ -14,13 +18,17 @@
 
 @font-face {
 	font-family: 'Poeti';
+        font-weight: 400;
+        font-style: normal;
 	src: url( '../fonts/poeti120/poeti-aaa-regular-webfont.eot' );
 	src: url( '../fonts/poeti120/poeti-aaa-regular-webfont.eot?#iefix' )
 		format( 'embedded-opentype' ),url( '../fonts/poeti120/poeti-aaa-regular-webfont.woff' ) format( 'woff' ),url( '../fonts/poeti120/poeti-aaa-regular-webfont.ttf' ) format( 'truetype' ),url( '../fonts/poeti120/poeti-aaa-regular-webfont.svg#webfont' ) format( 'svg' );
 }
 
 @font-face {
-	font-family: 'Poeti-Bold';
+	font-family: 'Poeti';
+        font-weight: 700;
+        font-style: normal;
 	src: url( '../fonts/poeti120/poeti-aaa-bold-webfont.eot' );
 	src: url( '../fonts/poeti120/poeti-aaa-bold-webfont.eot?#iefix' )
 		format( 'embedded-opentype' ),url( '../fonts/poeti120/poeti-aaa-bold-webfont.woff' ) format( 'woff' ),url( '../fonts/poeti120/poeti-aaa-bold-webfont.ttf' ) format( 'truetype' ),url( '../fonts/poeti120/poeti-aaa-bold-webfont.svg#webfont' ) format( 'svg' );
@@ -40,8 +48,8 @@ h4,
 h5,
 h6,
 strong {
-	font-family: 'Poeti-Bold', 'Roboto-Bold', 'Montserrat-Light', 'Open Sans';
-	font-weight: normal;
+	font-family: 'Poeti', 'Roboto', 'Open Sans';
+	font-weight: 700;
 	margin: 0;
 	line-height: 1.5;
 }
@@ -604,12 +612,14 @@ xxx.header .menues nav .mtlp-rap .mtlp-back {
 	margin-bottom: 0;
 	font-size: 16px;
 	line-height: 20px;
+	z-index: 11;
+	position: relative;
 }
 
-.header .menues .smenu li:hover .smtlp-arrow {
+/*.header .menues .smenu li:hover .smtlp-arrow {
 	display: block;
 }
-/* @noflip */
+/* @noflip *x/
 .header .menues .smenu li .smtlp-arrow {
 	display: none;
 	position: absolute;
@@ -625,7 +635,7 @@ xxx.header .menues nav .mtlp-rap .mtlp-back {
 	left: 0;
 	z-index: 99;
 	background: white;
-}
+}*/
 /* @noflip */
 .header .menues .smenu li .smtlp-rap {
 	display: none;
@@ -634,10 +644,25 @@ xxx.header .menues nav .mtlp-rap .mtlp-back {
 	z-index: 9;
 	border: 1px solid #a8a8a8;
 	padding: 0 10px;
-	min-width: 243px;
+	min-width: 280px;
 	top: 30px;
 }
-
+/* @noflip */
+.smtlp-rap:after {
+    content: "";
+    border-top: 1px solid #a8a8a8;
+    border-left: 1px solid #a8a8a8;
+    width: 15px;
+    height: 15px;
+    -webkit-transform: rotate(45deg);
+    transform: rotate(45deg);
+    margin: auto;
+    top: -8px;
+    right: 29px;
+    z-index: 10;
+    background: white;
+    position: absolute;
+}
 .header .menues .smenu li span.smtlp {
 	cursor: pointer;
 	padding-bottom: 20px;
@@ -782,6 +807,25 @@ body.home .main-img {
 .smtlp-rap a:hover {
 	background: #f4f4f4;
 }
+.smtlp-rap a:hover:after {
+    content: "";
+    position: absolute;
+    background: #f4f4f4;
+    left: -10px;
+    height: 100%;
+    width: 10px;
+    top: 0;
+}
+
+.smtlp-rap a:hover:before {
+    content: "";
+    position: absolute;
+    background: #f4f4f4;
+    right: -10px;
+    height: 100%;
+    width: 10px;
+    top: 0;
+}
 
 /* @noflip */
 .main-img .mtext {
@@ -810,16 +854,21 @@ body.home .main-img {
 	display: block;
 	vertical-align: middle;
 	height: auto;
-	padding: 37px 0;
+	padding: 37px 0 37px 7px;
 }
 
+/* @noflip */
+p.sh-links {
+    position: absolute;
+    bottom: 7px;
+    width: 100%;
+    padding-left: 10px;
+}
 /* @noflip */
 .main-img .mtext .h1,
 .main-img .mtext h1 {
 	color: white;
-	font-family: 'Roboto-Bold', Poeti-Bold, 'Open Sans';
-	margin-top: 0.5em;
-	margin-bottom: 1.5em;
+	line-height: 1.2;
 }
 
 .main-img .mtext h6 {
@@ -832,6 +881,7 @@ body.home .main-img {
 	display: table;
 	height: 100%;
 	width: 100%;
+        min-height: 282px;
 }
 /* @noflip */
 .main-img .imgrap .irap {
@@ -3343,6 +3393,7 @@ input.searchbox-input.mw-ui-input.mw-ui-input-inline {
 	list-style-type: none;
 	text-align: center;
 	clear: both;
+	padding-left: 30px;
 }
 
 #searchBoxHeader .icheckbox_square-blue {
@@ -3371,6 +3422,7 @@ input.searchbox-input.mw-ui-input.mw-ui-input-inline {
 @media only screen and ( min-width: 768px ) {
 	#searchBoxHeader {
 		width: 70%;
+		max-width: 700px;
 	}
 }
 
@@ -3491,4 +3543,21 @@ li.current {
 
 li.current a {
 	color: #fff !important;
+}
+
+/* UI Corrections */
+body .oo-ui-iconElement .oo-ui-iconElement-icon, body .oo-ui-iconElement.oo-ui-iconElement-icon {
+	height: 100%;
+}
+
+.oo-ui-checkboxInputWidget [type='checkbox'] {
+	display: block;
+}
+
+.oo-ui-checkboxInputWidget [type='checkbox'] + span {
+	top: 0;
+}
+
+.modal-header {
+	direction: ltr;
 }
