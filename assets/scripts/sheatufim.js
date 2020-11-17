@@ -313,3 +313,20 @@
         });    
     });
 }( mediaWiki, jQuery ) );
+
+const wrapper = document.getElementById('searchBoxHeader')
+        const radios = wrapper.querySelectorAll('input[type=radio]')
+        const categroyValue = wrapper.querySelector('input[type=hidden]')
+        const setValue = (e) => {
+            let value = '';
+            radios.forEach(c => {
+                if (c.checked) {
+                    value = c.dataset.target
+                }
+            });
+            categroyValue.value=value;
+        }
+
+        radios.forEach(c => {
+            c.addEventListener('change', setValue)
+        })

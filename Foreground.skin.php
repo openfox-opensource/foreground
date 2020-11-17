@@ -236,7 +236,7 @@ class ForegroundTemplate extends BaseTemplate {
 				<div class="menues mmrap">
 					<nav class="smenu">
 						<ul>
-							<li><a href="/על_פורטל_הידע"><span class="smtlp">על הפורטל<span class="hide icon icon-svg_icons_arrow"></span></a></span></li>
+							<li><a href="/על_פורטל_הידע"><span class="smtlp">על ספריית הידע<span class="hide icon icon-svg_icons_arrow"></span></a></span></li>
 							<li><a href="//sheatufim.org.il">על שיתופים<span class="hide icon icon-svg_icons_arrow"></span></a></li>
 							<li><a href="/ארגז_כלים:שולחן העבודה למנהל החברתי"><span class="smtlp">ארגזי כלים<span class="hide icon icon-svg_icons_arrow"></span></a></span>
 								<div class="smtlp-arrow"></div>
@@ -273,7 +273,7 @@ class ForegroundTemplate extends BaseTemplate {
 						<a href="/<?php print $namespace;?>"><?php print $namespace;?>
 					<?php }
  else { ?>
-						<a href="<?php echo $this->data['nav_urls']['mainpage']['href']; ?>">מאגר הידע</a> <?php
+						<a href="<?php echo $this->data['nav_urls']['mainpage']['href']; ?>">ספריית הידע</a> <?php
  } ?>
 						<span> &gt; </span>
 						<a href="#">
@@ -340,7 +340,7 @@ class ForegroundTemplate extends BaseTemplate {
 				<a target="_blank" href="https://www.youtube.com/user/sheatufim" class="icon-svg_icons_youtube"></a>
 			</div>
 			<nav class="fmenu">
-				<li class=""><a href="/על_פורטל_הידע">על הפורטל</a></li>
+				<li class=""><a href="/על_פורטל_הידע">על ספריית הידע</a></li>
 				<li class=""><a target="_blank" href="//www.sheatufim.org.il">אתר שיתופים</a></li>
 				<li class=""><a href="//www.sheatufim.org.il/contact-us/">צור קשר</a></li>
 				<li class=""><a href="//www.sheatufim.org.il/תנאי-שימוש/">תנאי שימוש</a></li>

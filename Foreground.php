@@ -5,7 +5,6 @@
  *
  * @file
  * @ingroup Skins
-<<<<<<< HEAD
  * @license 2-clause BSD
  */
 
