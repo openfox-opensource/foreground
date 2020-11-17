@@ -4,28 +4,7 @@ jQuery(document).ready(function() {
   // Add the 'less than IE9' class to appropriate version of IE by checking for their support of cssFloat (true in v9)
   if (!jQuery.support.cssFloat) { jQuery('html').addClass('lt-ie9').addClass('no-js'); }
 
-  if (jQuery('.portal').length > 0) { 
-        
-        /* jQuery("#mw-content-text").shapeshift({
-            minColumns: 2, 
-            selector: ".portal"
-        }); */
-
-        jQuery(document).ready(function(){
-               // set up hover panels
-               // although this can be done without JavaScript, we've attached these events
-              // because it causes the hover to be triggered when the element is tapped on a touch device
-           jQuery('.hover').hover(function(){
-                    jQuery(this).addClass('flip');
-            },function(){
-               jQuery(this).removeClass('flip');
-            });
-        });
-    }
   // Log errors
-  jQuery(document).foundation(function (response) {
-    if (window.console) console.log(response.errors);
-  });
   
   // The Echo extension puts an item in personal tools that Foreground really should have in the top menu
   // to make this easier, we move it here and loaded earlier to speed up transform

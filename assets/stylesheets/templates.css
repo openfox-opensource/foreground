@@ -1,9 +1,23 @@
+.align-middle {
+    display: -ms-flexbox;
+    display: -webkit-flex;
+    display: flex;
+
+    -ms-flex-align: center;
+    -webkit-align-items: center;
+    -webkit-box-align: center;
+    align-items: center;
+    height: 100%;
+}
+.large-4 .box label {
+	color:#fff;
+}
 .cat-מושגים div.large-4.small-12.columns div.box,
 .cat-מושגים .mimg-back {
 	background: #2066af;
 	color: white;
 }
-
+div.large-4.small-12.columns div.box,
 .cat-מאמרים div.large-4.small-12.columns div.box,
 .cat-מאמרים .mimg-back {
 	background: #b92f88;
@@ -56,37 +70,30 @@ div.large-4.small-12.columns.blue div.box {
 	color: white;
 }
 
-.cat-מאמרים div.large-8.small-12.columns div.box span.mw-headline {
+.cat-מאמרים .box .mw-headline {
 	border-color: #b92f88;
 }
 
-.cat-ארגונים div.large-8.small-12.columns div.box span.mw-headline {
+.cat-ארגונים .box .mw-headline {
 	border-color: #722b90;
 }
 
-.cat-כלים div.large-8.small-12.columns div.box span.mw-headline {
+.cat-כלים .box .mw-headline {
 	border-color: #7cba46;
 }
-
-.cat-קרנות div.large-8.small-12.columns div.box span.mw-headline {
+.cat-קרנות .box .mw-headline {
 	border-color: #58b8da;
 }
 
-.cat-מצגות div.large-8.small-12.columns div.box span.mw-headline {
+.cat-מצגות .box .mw-headline {
 	border-color: #f0532b;
 }
 
-.cat-מושגים div.large-8.small-12.columns div.box span.mw-headline {
+.cat-מושגים .box .mw-headline {
 	border-color: #2066af;
 }
 
-.orange div.large-8.small-12.columns div.box span.mw-headline {
-	border-color: #f0862f;
-}
 
-.blue div.large-8.small-12.columns div.box span.mw-headline {
-	border-color: #6294c7;
-}
 
 /* This is used in the search field autocompletion */
 
@@ -123,38 +130,38 @@ div.large-4.small-12.columns.blue div.box {
 	color: #6294c7;
 }
 
-input[ type=checkbox ] {
+input[ type=checkbox ], input[ type=radio ] {
 	display: none;
 }
 
 /* to hide the checkbox itself */
-input[ type=checkbox ] + label:before {
+input[ type=checkbox ] + label:before, input[ type=radio ] + label:before {
 	font-family: FontAwesome;
 	display: inline-block;
 }
 
-input[ type=checkbox ] + label:before {
+input[ type=checkbox ] + label:before, input[ type=radio ] + label:before {
 	content: '\f096';
 	font-size: 20px;
 }
 
 /* unchecked icon */
 /* @noflip */
-input[ type=checkbox ] + label:before {
+input[ type=checkbox ] + label:before, input[ type=radio ] + label:before {
 	letter-spacing: 10px;
 	margin-left: 10px;
 	font-weight: bold;
 }
 
 /* space between checkbox and label */
-input[ type=checkbox ]:checked + label:before {
+input[ type=checkbox ]:checked + label:before, input[ type=radio ]:checked + label:before {
 	content: '\f046';
 }
 
 
 /* checked icon */
 /* @noflip */
-input[ type=checkbox ]:checked + label:before {
+input[ type=checkbox ]:checked + label:before, input[ type=radio ]:checked + label:before {
 	letter-spacing: 10px;
 	margin-left: 10px;
 	font-weight: bold;
@@ -193,7 +200,7 @@ input[ type=checkbox ]:checked + label:before {
 
 
 /* @noflip */
-.searchFilters input[ type='checkbox' ] {
+.searchFilters input[ type='checkbox' ], .searchFilters input[ type='radio' ] {
 	margin-right: 0.75em;
 }
 
@@ -211,7 +218,7 @@ input[ type=checkbox ]:checked + label:before {
 }
 
 @media only screen and ( max-width: 40em ) {
-	#searchBoxHeader {
+	#searchBoxHeader, .imgrap  {
 		display: none !important;
 	}
 }
@@ -271,10 +278,10 @@ input.searchboxInput.mw-ui-input.mw-ui-input-inline {
 
 #searchBoxHeader .searchbox ul li {
 	float: right;
-	margin: 10px 1em;
+	margin: 10px 0;
 }
 
-#searchBoxHeader .searchbox ul li input[ type='checkbox' ] {
+#searchBoxHeader .searchbox ul li input[ type='checkbox' ], #searchBoxHeader .searchbox ul li input[ type='radio' ] {
 	margin: 4px;
 }
 
@@ -299,9 +306,7 @@ input.searchboxInput.mw-ui-input.mw-ui-input-inline {
 	padding-bottom: 0.9375em;
 }
 
-.sidebar span.mw-headline {
-	border-bottom-color: #2f6dbd;
-}
+
 
 .tile > div {
 	height: 8rem; }
@@ -381,10 +386,10 @@ input.searchboxInput.mw-ui-input.mw-ui-input-inline {
 	padding: 10px;
 	text-align: justify;
 	line-height: 1.3;
-	transition: all 0.5s ease;
-	-moz-transition: all 0.5s ease;
-	-webkit-transition: all 0.5s ease;
-	-ms-transition: all 0.5s ease;
+	transition: all 0.3s ease;
+	-moz-transition: all 0.3s ease;
+	-webkit-transition: all 0.3s ease;
+	-ms-transition: all 0.3ss ease;
 	box-shadow: rgba( 0, 0, 0, 0.36 ) 2px 2px 7px -2px;
 }
 /* @noflip */
@@ -404,7 +409,6 @@ input.searchboxInput.mw-ui-input.mw-ui-input-inline {
 	visibility: visible;
 	opacity: 1;
 	right: 100%;
-	top: 3rem;
 	margin-top: 2.5rem;
 	margin-left: -80px;
 	z-index: 999;
@@ -600,19 +604,8 @@ input[ type='submit' ]:hover {
 	border: 1px soild;
 }
 
-.box span.mw-headline {
-	font-size: 20.5px;
-	font-family: 'Poeti-Bold', 'Roboto-Bold', 'Montserrat-Light', 'Open Sans';
-	font-weight: normal;
-	border-bottom-width: 3px;
-	border-bottom-style: solid;
-	width: 100%;
-	display: inline;
-	color: rgb( 71, 71, 71 );
-}
 
 .box {
-	font-family: 'Poeti-Bold', 'Roboto-Bold', 'Montserrat-Light', 'Open Sans';
 	background: #f4f4f4;
 	padding: 2em;
 	margin: 1em 0;
@@ -720,6 +713,28 @@ div.large-8.small-12.columns > div.box.search {
 .margin-down {
 	margin-bottom: 2em;
 }
+@media only screen and ( min-width: 40em ) {
+.grid-container {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  grid-template-rows: 1fr;
+  gap: 0px 0px;
+  grid-template-areas:
+    "split .";
+  margin-bottom:1em;
+}
+.split {
+  display: grid;
+  grid-template-columns: 1fr;
+  grid-template-rows: 1fr 1fr;
+  gap: 0px 0px;
+  grid-template-areas:
+    "."
+    ".";
+  grid-area: split;
+}
+}
+.grid-container
 
 /* @noflip */
 #sh-intro {
@@ -729,8 +744,8 @@ div.large-8.small-12.columns > div.box.search {
 
 /* @noflip */
 #first-part {
-	float: right;
-	padding: 0;
+    padding: 0 5%;
+    position: relative;
 }
 
 #counters {
@@ -762,11 +777,8 @@ div.large-4.small-12.columns h5 {
 }
 
 .selected-categories {
-	/*     display: -webkit-inline-box;
-    display: -ms-inline-flexbox;
-    display: inline-flex; */
-	margin-bottom: 1.5em;
-	margin-top: 0.5em;
+	clear:both;
+	overflow: hidden;
 }
 
 /* @noflip */
@@ -794,7 +806,26 @@ div.large-4.small-12.columns h5 {
 	display: inline-block;
 }
 
+.selected-category a:hover {
+	color:#fff;
+	text-decoration: none;
+	background: #5bbbdd;
+} 
+.selected-category p {
+	margin-bottom: 0;
+}
+
 @media only screen and ( max-width: 40em ) {
+	.section-bottom {
+	    display: flex;
+	    flex-direction: column;
+	    width: 100%;
+	    margin-bottom: 1em;
+	}
+	.category-container {
+	    order: 1;
+	}
+
 	.selected-category a {
 		padding: 5px;
 	}
@@ -829,11 +860,18 @@ div.large-4.small-12.columns h5 {
 }
 
 .archive-block-item {
-	padding: 0 1.5em;
+	margin: 0 .5em;
+    	padding: 0 0 1em;
 }
+
+.archive-block-item div {
+        margin: 0 25px;
+}
+
 
 .archive-block .columns {
 	padding: 1em 0;
+	background: #fff;
 }
 
 /* @noflip */
@@ -862,7 +900,6 @@ div.large-4.small-12.columns h5 {
 	background: #fff;
 	color: inherit;
 	padding: 0.3em 0;
-	display: inline-block;
 	text-decoration: none;
 	border-color: currentColor;
 	border-width: 3px;
@@ -873,7 +910,6 @@ div.large-4.small-12.columns h5 {
 	margin-top: 20px;
 	position: relative;
 	text-align: center;
-	width: 100%;
 	-webkit-transition: 0.3s all ease;
 	transition: 0.3s all ease;
 }
@@ -891,15 +927,27 @@ div.large-4.small-12.columns h5 {
 	border-top-style: solid;
 	clear: both;
 	margin-top: 1em;
+	padding-top: 1em;
 	overflow: hidden;
-	/*     display: -webkit-inline-box;
-    display: -ms-inline-flexbox;
-    display: inline-flex; */
 }
 
-/* @noflip */
-div:nth-child( n+3 ) > div.archive-block-item {
-	border-right: 2px solid rgba( 128, 128, 128, 0.65 );
+.archive-block-item > a {
+    display: block;
+    margin-bottom: 1em;
+    position: relative;
+    height: 167px;
+    overflow: hidden;
+}
+
+.archive-block-item > a img {
+    position: absolute;
+    left: 50%;
+    top: 50%;
+    -webkit-transform: translate(-50%,-50%);
+    -ms-transform: translate(-50%,-50%);
+    transform: translate(-50%,-50%);
+    min-width: 101%;
+    height: auto;
 }
 
 embed {
@@ -907,9 +955,15 @@ embed {
 	height: 97.5vh;
 }
 
+/* disable popups in toolbox pages */
+.cat-ארגז_כלים .mwe-popups {
+    display: none !important;
+}
+
+
 @media only screen and ( max-width: 40em ) {
 	/* @noflip */
-	div:nth-child( n+3 ) > div.archive-block-item {
+	div.archive-block-item {
 		border-right: none;
 	}
 
@@ -918,7 +972,7 @@ embed {
 	}
 }
 
-div:nth-child( n+2 ) > div > div.text {
+.archive-block-item div.text {
 	margin-top: 2em;
 }
 
@@ -941,4 +995,23 @@ div:nth-child( n+2 ) > div > div.text {
 	display: inline-block;
 	vertical-align: middle;
 	margin: 0 -6px;
+}
+
+
+/* Knowledge map page */
+.page-מפת_הידע_של_שיתופים #main-img-area {
+    background: #f2f2f2;
+    padding: 3em 0;
+}
+
+.km-link {
+   position:relative;
+   z-index: 5;
+}
+.km-link a {
+    color: #212529;
+    position: absolute;
+    left: 5%;
+    top: 0;
+    z-index: 1;
 }
