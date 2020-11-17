@@ -612,12 +612,14 @@ xxx.header .menues nav .mtlp-rap .mtlp-back {
 	margin-bottom: 0;
 	font-size: 16px;
 	line-height: 20px;
+	z-index: 11;
+	position: relative;
 }
 
-.header .menues .smenu li:hover .smtlp-arrow {
+/*.header .menues .smenu li:hover .smtlp-arrow {
 	display: block;
 }
-/* @noflip */
+/* @noflip *x/
 .header .menues .smenu li .smtlp-arrow {
 	display: none;
 	position: absolute;
@@ -633,7 +635,7 @@ xxx.header .menues nav .mtlp-rap .mtlp-back {
 	left: 0;
 	z-index: 99;
 	background: white;
-}
+}*/
 /* @noflip */
 .header .menues .smenu li .smtlp-rap {
 	display: none;
@@ -642,10 +644,25 @@ xxx.header .menues nav .mtlp-rap .mtlp-back {
 	z-index: 9;
 	border: 1px solid #a8a8a8;
 	padding: 0 10px;
-	min-width: 243px;
+	min-width: 280px;
 	top: 30px;
 }
-
+/* @noflip */
+.smtlp-rap:after {
+    content: "";
+    border-top: 1px solid #a8a8a8;
+    border-left: 1px solid #a8a8a8;
+    width: 15px;
+    height: 15px;
+    -webkit-transform: rotate(45deg);
+    transform: rotate(45deg);
+    margin: auto;
+    top: -8px;
+    right: 29px;
+    z-index: 10;
+    background: white;
+    position: absolute;
+}
 .header .menues .smenu li span.smtlp {
 	cursor: pointer;
 	padding-bottom: 20px;
@@ -789,6 +806,25 @@ body.home .main-img {
 
 .smtlp-rap a:hover {
 	background: #f4f4f4;
+}
+.smtlp-rap a:hover:after {
+    content: "";
+    position: absolute;
+    background: #f4f4f4;
+    left: -10px;
+    height: 100%;
+    width: 10px;
+    top: 0;
+}
+
+.smtlp-rap a:hover:before {
+    content: "";
+    position: absolute;
+    background: #f4f4f4;
+    right: -10px;
+    height: 100%;
+    width: 10px;
+    top: 0;
 }
 
 /* @noflip */
@@ -3352,6 +3388,7 @@ input.searchbox-input.mw-ui-input.mw-ui-input-inline {
 	list-style-type: none;
 	text-align: center;
 	clear: both;
+	padding-left: 30px;
 }
 
 #searchBoxHeader .icheckbox_square-blue {
@@ -3379,7 +3416,9 @@ input.searchbox-input.mw-ui-input.mw-ui-input-inline {
 
 @media only screen and ( min-width: 768px ) {
 	#searchBoxHeader {
-		width: 90%;
+
+		width: 70%;/*90%*/
+		max-width: 700px;
 	}
 }
 
